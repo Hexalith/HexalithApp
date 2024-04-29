@@ -1,6 +1,11 @@
-﻿<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] { typeof(_Imports).Assembly }">
+﻿<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] 
+    { 
+        typeof(HexalithApp.Client._Imports).Assembly,
+        typeof(Hexalith.UI.Components._Imports).Assembly,
+        typeof(Microsoft.FluentUI.AspNetCore.Components._Imports).Assembly
+    }">
     <Found Context="routeData">
-        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(Layout.MainLayout)">
+        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
             <NotAuthorized>
                 <RedirectToLogin />
             </NotAuthorized>

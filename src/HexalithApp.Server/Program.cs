@@ -1,13 +1,14 @@
-namespace HexalithApp;
+namespace HexalithApp.Server;
 
-using HexalithApp.Components;
-using HexalithApp.Components.Account;
-using HexalithApp.Data;
+using Hexalith.UI.Components;
+using Hexalith.UI.Components.Helpers;
+
+using HexalithApp.Server.Components.Account;
+using HexalithApp.Server.Data;
 
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.FluentUI.AspNetCore.Components;
 
 public static class Program
 {
@@ -15,11 +16,12 @@ public static class Program
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+        _ = builder.WebHost.UseStaticWebAssets();
+
         // Add services to the container.
         _ = builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
-        _ = builder.Services.AddFluentUIComponents();
 
         _ = builder.Services.AddCascadingAuthenticationState();
         _ = builder.Services.AddScoped<IdentityUserAccessor>();
@@ -45,6 +47,15 @@ public static class Program
 
         _ = builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
+        _ = builder.Services.AddHttpClient();
+        _ = builder.Services.AddSingleton(new ApplicationInformation(
+        "Hexalith",
+        "Hexalith",
+        "Hexalith server application",
+        "Fiveforty Inc",
+        "0.0.1"));
+
+        _ = builder.Services.AddFluentUITheme();
         WebApplication app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -66,10 +77,12 @@ public static class Program
         _ = app.UseStaticFiles();
         _ = app.UseAntiforgery();
 
-        _ = app.MapRazorComponents<App>()
+        _ = app.MapRazorComponents<HexalithApp.Server.Components.App>()
             .AddInteractiveServerRenderMode()
             .AddInteractiveWebAssemblyRenderMode()
-            .AddAdditionalAssemblies(typeof(_Imports).Assembly);
+            .AddAdditionalAssemblies(typeof(Hexalith.UI.Components.FluentUITheme.HexApplication).Assembly)
+            .AddAdditionalAssemblies(typeof(Microsoft.FluentUI.AspNetCore.Components.Align).Assembly)
+            .AddAdditionalAssemblies(typeof(HexalithApp.Client._Imports).Assembly);
 
         // Add additional endpoints required by the Identity /Account Razor components.
         _ = app.MapAdditionalIdentityEndpoints();

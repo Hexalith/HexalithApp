@@ -1,11 +1,11 @@
-namespace HexalithApp.Components.Account;
+namespace HexalithApp.Server.Components.Account;
 
 using System.Security.Claims;
 using System.Text.Json;
 
-using HexalithApp.Components.Account.Pages;
-using HexalithApp.Components.Account.Pages.Manage;
-using HexalithApp.Data;
+using HexalithApp.Server.Components.Account.Pages;
+using HexalithApp.Server.Components.Account.Pages.Manage;
+using HexalithApp.Server.Data;
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -98,7 +98,7 @@ internal static class IdentityComponentsEndpointRouteBuilderExtensions
             downloadLogger.LogInformation("User with ID '{UserId}' asked for their personal data.", userId);
 
             // Only include personal data for download
-            Dictionary<string, string> personalData = new();
+            Dictionary<string, string> personalData = [];
             IEnumerable<System.Reflection.PropertyInfo> personalDataProps = typeof(ApplicationUser).GetProperties().Where(
                 prop => Attribute.IsDefined(prop, typeof(PersonalDataAttribute)));
             foreach (System.Reflection.PropertyInfo? p in personalDataProps)
