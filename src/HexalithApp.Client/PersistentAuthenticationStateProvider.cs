@@ -1,4 +1,5 @@
 namespace HexalithApp.Client;
+
 using System.Security.Claims;
 
 using Microsoft.AspNetCore.Components;
@@ -14,27 +15,33 @@ using Microsoft.AspNetCore.Components.Authorization;
 // cookie that will be included on HttpClient requests to the server.
 internal class PersistentAuthenticationStateProvider : AuthenticationStateProvider
 {
-	private static readonly Task<AuthenticationState> defaultUnauthenticatedTask =
-		Task.FromResult(new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())));
+    private static readonly Task<AuthenticationState> DefaultUnauthenticatedTask =
+        Task.FromResult(new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())));
 
-	private readonly Task<AuthenticationState> authenticationStateTask = defaultUnauthenticatedTask;
+    private readonly Task<AuthenticationState> _authenticationStateTask = DefaultUnauthenticatedTask;
 
-	public PersistentAuthenticationStateProvider(PersistentComponentState state)
-	{
-		if (!state.TryTakeFromJson<UserInfo>(nameof(UserInfo), out var userInfo) || userInfo is null)
-		{
-			return;
-		}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PersistentAuthenticationStateProvider"/> class.
+    /// </summary>
+    /// <param name="state"></param>
+    public PersistentAuthenticationStateProvider(PersistentComponentState state)
+    {
+        if (!state.TryTakeFromJson<UserInfo>(nameof(UserInfo), out UserInfo? userInfo) || userInfo is null)
+        {
+            return;
+        }
 
-		Claim[] claims = [
-			new Claim(ClaimTypes.NameIdentifier, userInfo.UserId),
-			new Claim(ClaimTypes.Name, userInfo.Email),
-			new Claim(ClaimTypes.Email, userInfo.Email) ];
+        Claim[] claims = [
+            new Claim(ClaimTypes.NameIdentifier, userInfo.UserId),
+            new Claim(ClaimTypes.Name, userInfo.Email),
+            new Claim(ClaimTypes.Email, userInfo.Email)];
 
-		authenticationStateTask = Task.FromResult(
-			new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(claims,
-				authenticationType: nameof(PersistentAuthenticationStateProvider)))));
-	}
+        _authenticationStateTask = Task.FromResult(
+            new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(
+                claims,
+                authenticationType: nameof(PersistentAuthenticationStateProvider)))));
+    }
 
-	public override Task<AuthenticationState> GetAuthenticationStateAsync() => authenticationStateTask;
+    /// <inheritdoc/>
+    public override Task<AuthenticationState> GetAuthenticationStateAsync() => _authenticationStateTask;
 }

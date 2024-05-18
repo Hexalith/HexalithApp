@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{ABF08610
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.Shared", "HexalithApp.Shared\HexalithApp.Shared.csproj", "{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

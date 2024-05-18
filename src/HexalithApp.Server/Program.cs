@@ -1,8 +1,8 @@
-namespace HexalithApp;
+namespace HexalithApp.Server;
 
-using HexalithApp.Components;
-using HexalithApp.Components.Account;
-using HexalithApp.Data;
+using HexalithApp.Server.Components;
+using HexalithApp.Server.Components.Account;
+using HexalithApp.Server.Data;
 
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -61,6 +61,8 @@ public static class Program
             _ = app.UseHsts();
         }
 
+        app.MapSwagger();
+
         _ = app.UseHttpsRedirection();
 
         _ = app.UseStaticFiles();
@@ -69,7 +71,7 @@ public static class Program
         _ = app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode()
             .AddInteractiveWebAssemblyRenderMode()
-            .AddAdditionalAssemblies(typeof(_Imports).Assembly);
+            .AddAdditionalAssemblies(typeof(Client._Imports).Assembly);
 
         // Add additional endpoints required by the Identity /Account Razor components.
         _ = app.MapAdditionalIdentityEndpoints();

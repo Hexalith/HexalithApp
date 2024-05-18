@@ -1,6 +1,7 @@
 <Project>
 	<PropertyGroup>
 		<MinverVersion>5.0.0</MinverVersion>
+		<MicrosoftFluentUIVersion>4.*</MicrosoftFluentUIVersion>
 		<MicrosoftNETTestSdkVersion>17.9.0</MicrosoftNETTestSdkVersion>
 		<StyleCopAnalyzersVersion>1.2.0-beta.556</StyleCopAnalyzersVersion>
 		<XUnitRunnerVisualStudioVersion>2.5.7</XUnitRunnerVisualStudioVersion>

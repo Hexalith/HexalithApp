@@ -1,9 +1,10 @@
-namespace HexalithApp.Components.Account;
+namespace HexalithApp.Server.Components.Account;
+
 using System.Diagnostics;
 using System.Security.Claims;
 
 using HexalithApp.Client;
-using HexalithApp.Data;
+using HexalithApp.Server.Data;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -17,94 +18,102 @@ using Microsoft.Extensions.Options;
 // authentication state to the client which is then fixed for the lifetime of the WebAssembly application.
 internal sealed class PersistingRevalidatingAuthenticationStateProvider : RevalidatingServerAuthenticationStateProvider
 {
-	private readonly IServiceScopeFactory scopeFactory;
-	private readonly PersistentComponentState state;
-	private readonly IdentityOptions options;
+    private readonly IdentityOptions _options;
+    private readonly IServiceScopeFactory _scopeFactory;
+    private readonly PersistentComponentState _state;
+    private readonly PersistingComponentStateSubscription _subscription;
 
-	private readonly PersistingComponentStateSubscription subscription;
+    private Task<AuthenticationState>? _authenticationStateTask;
 
-	private Task<AuthenticationState>? authenticationStateTask;
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PersistingRevalidatingAuthenticationStateProvider"/> class.
+    /// </summary>
+    /// <param name="loggerFactory"></param>
+    /// <param name="serviceScopeFactory"></param>
+    /// <param name="persistentComponentState"></param>
+    /// <param name="optionsAccessor"></param>
+    public PersistingRevalidatingAuthenticationStateProvider(
+        ILoggerFactory loggerFactory,
+        IServiceScopeFactory serviceScopeFactory,
+        PersistentComponentState persistentComponentState,
+        IOptions<IdentityOptions> optionsAccessor)
+        : base(loggerFactory)
+    {
+        _scopeFactory = serviceScopeFactory;
+        _state = persistentComponentState;
+        _options = optionsAccessor.Value;
 
-	public PersistingRevalidatingAuthenticationStateProvider(
-		ILoggerFactory loggerFactory,
-		IServiceScopeFactory serviceScopeFactory,
-		PersistentComponentState persistentComponentState,
-		IOptions<IdentityOptions> optionsAccessor)
-		: base(loggerFactory)
-	{
-		scopeFactory = serviceScopeFactory;
-		state = persistentComponentState;
-		options = optionsAccessor.Value;
+        AuthenticationStateChanged += OnAuthenticationStateChanged;
+        _subscription = _state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
+    }
 
-		AuthenticationStateChanged += OnAuthenticationStateChanged;
-		subscription = state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
-	}
+    /// <inheritdoc/>
+    protected override TimeSpan RevalidationInterval => TimeSpan.FromMinutes(30);
 
-	protected override TimeSpan RevalidationInterval => TimeSpan.FromMinutes(30);
+    /// <inheritdoc/>
+    protected override void Dispose(bool disposing)
+    {
+        _subscription.Dispose();
+        AuthenticationStateChanged -= OnAuthenticationStateChanged;
+        base.Dispose(disposing);
+    }
 
-	protected override async Task<bool> ValidateAuthenticationStateAsync(
-		AuthenticationState authenticationState, CancellationToken cancellationToken)
-	{
-		// Get the user manager from a new scope to ensure it fetches fresh data
-		await using var scope = scopeFactory.CreateAsyncScope();
-		var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-		return await ValidateSecurityStampAsync(userManager, authenticationState.User);
-	}
+    /// <inheritdoc/>
+    protected override async Task<bool> ValidateAuthenticationStateAsync(
+        AuthenticationState authenticationState, CancellationToken cancellationToken)
+    {
+        // Get the user manager from a new scope to ensure it fetches fresh data
+#pragma warning disable CA2007 // Consider calling ConfigureAwait on the awaited task
+        await using AsyncServiceScope scope = _scopeFactory.CreateAsyncScope();
+#pragma warning restore CA2007 // Consider calling ConfigureAwait on the awaited task
+        UserManager<ApplicationUser> userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        return await ValidateSecurityStampAsync(userManager, authenticationState.User).ConfigureAwait(false);
+    }
 
-	private async Task<bool> ValidateSecurityStampAsync(UserManager<ApplicationUser> userManager, ClaimsPrincipal principal)
-	{
-		var user = await userManager.GetUserAsync(principal);
-		if (user is null)
-		{
-			return false;
-		}
-		else if (!userManager.SupportsUserSecurityStamp)
-		{
-			return true;
-		}
-		else
-		{
-			var principalStamp = principal.FindFirstValue(options.ClaimsIdentity.SecurityStampClaimType);
-			var userStamp = await userManager.GetSecurityStampAsync(user);
-			return principalStamp == userStamp;
-		}
-	}
+    private void OnAuthenticationStateChanged(Task<AuthenticationState> task) => _authenticationStateTask = task;
 
-	private void OnAuthenticationStateChanged(Task<AuthenticationState> task)
-	{
-		authenticationStateTask = task;
-	}
+    private async Task OnPersistingAsync()
+    {
+        if (_authenticationStateTask is null)
+        {
+            throw new UnreachableException($"Authentication state not set in {nameof(OnPersistingAsync)}().");
+        }
 
-	private async Task OnPersistingAsync()
-	{
-		if (authenticationStateTask is null)
-		{
-			throw new UnreachableException($"Authentication state not set in {nameof(OnPersistingAsync)}().");
-		}
+        AuthenticationState authenticationState = await _authenticationStateTask.ConfigureAwait(false);
+        ClaimsPrincipal principal = authenticationState.User;
 
-		var authenticationState = await authenticationStateTask;
-		var principal = authenticationState.User;
+        if (principal.Identity?.IsAuthenticated == true)
+        {
+            string? userId = principal.FindFirst(_options.ClaimsIdentity.UserIdClaimType)?.Value;
+            string? email = principal.FindFirst(_options.ClaimsIdentity.EmailClaimType)?.Value;
 
-		if (principal.Identity?.IsAuthenticated == true)
-		{
-			var userId = principal.FindFirst(options.ClaimsIdentity.UserIdClaimType)?.Value;
-			var email = principal.FindFirst(options.ClaimsIdentity.EmailClaimType)?.Value;
+            if (userId != null && email != null)
+            {
+                _state.PersistAsJson(nameof(UserInfo), new UserInfo
+                {
+                    UserId = userId,
+                    Email = email,
+                });
+            }
+        }
+    }
 
-			if (userId != null && email != null)
-			{
-				state.PersistAsJson(nameof(UserInfo), new UserInfo
-				{
-					UserId = userId,
-					Email = email,
-				});
-			}
-		}
-	}
-
-	protected override void Dispose(bool disposing)
-	{
-		subscription.Dispose();
-		AuthenticationStateChanged -= OnAuthenticationStateChanged;
-		base.Dispose(disposing);
-	}
+    private async Task<bool> ValidateSecurityStampAsync(UserManager<ApplicationUser> userManager, ClaimsPrincipal principal)
+    {
+        ApplicationUser? user = await userManager.GetUserAsync(principal).ConfigureAwait(false);
+        if (user is null)
+        {
+            return false;
+        }
+        else if (!userManager.SupportsUserSecurityStamp)
+        {
+            return true;
+        }
+        else
+        {
+            string? principalStamp = principal.FindFirstValue(_options.ClaimsIdentity.SecurityStampClaimType);
+            string userStamp = await userManager.GetSecurityStampAsync(user).ConfigureAwait(false);
+            return principalStamp == userStamp;
+        }
+    }
 }

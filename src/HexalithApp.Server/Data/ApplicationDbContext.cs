@@ -1,4 +1,5 @@
-namespace HexalithApp.Data;
+namespace HexalithApp.Server.Data;
+
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,19 +1,18 @@
 namespace HexalithApp.Client;
-using HexalithApp.Client;
 
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 internal class Program
 {
-	static async Task Main(string[] args)
-	{
-		var builder = WebAssemblyHostBuilder.CreateDefault(args);
+    private static async Task Main(string[] args)
+    {
+        WebAssemblyHostBuilder builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-		builder.Services.AddAuthorizationCore();
-		builder.Services.AddCascadingAuthenticationState();
-		builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();
+        _ = builder.Services.AddAuthorizationCore();
+        _ = builder.Services.AddCascadingAuthenticationState();
+        _ = builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();
 
-		await builder.Build().RunAsync();
-	}
+        await builder.Build().RunAsync().ConfigureAwait(false);
+    }
 }
