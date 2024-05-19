@@ -11,6 +11,6 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="$(AspNetCorePackagesVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="$(HexalithPath)\src\UI\Hexalith.UI.Components\Hexalith.UI.Components.csproj" />
+	  <ProjectReference Include="..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
 	</ItemGroup>
 </Project>
