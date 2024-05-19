@@ -13,10 +13,4 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
-	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(BuildingByReSharper)' == 'true'">
-		<ProjectReference Include="$(HexalithPath)\src\Core\Common\Hexalith.TestMocks\Hexalith.TestMocks.csproj" />
-	</ItemGroup>
-	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
-		<PackageReference Include="Hexalith.TestMocks" Version="$(HexalithVersion)" />
-	</ItemGroup>
 </Project>

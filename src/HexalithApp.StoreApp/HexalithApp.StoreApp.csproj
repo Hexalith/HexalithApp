@@ -65,4 +65,8 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="$(MicrosoftExtensionsPackagesVersion)" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
+    </ItemGroup>
+
 </Project>
