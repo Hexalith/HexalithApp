@@ -20,5 +20,5 @@ internal sealed class IdentityNoOpEmailSender : IEmailSender<ApplicationUser>
 
     /// <inheritdoc/>
     public Task SendPasswordResetLinkAsync(ApplicationUser user, string email, string resetLink) =>
-        _emailSender.SendEmailAsync(email, "Reset your password", $"Please reset your password by <a href='{resetLink}'>clicking here</a>.");
+            _emailSender.SendEmailAsync(email, "Reset your password", $"Please reset your password by <a href='{resetLink}'>clicking here</a>.");
 }

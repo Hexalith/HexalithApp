@@ -1,18 +1,22 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>HexalithApp.Server</UserSecretsId>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>HexalithApp.Server</UserSecretsId>
+		<AssemblyName>$(MSBuildProjectName)</AssemblyName>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\HexalithApp.Client\HexalithApp.Client.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCorePackagesVersion)" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(AspNetCorePackagesVersion)" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(AspNetCorePackagesVersion)" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(AspNetCorePackagesVersion)" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="$(AspNetCorePackagesVersion)" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+		<ProjectReference Include="..\HexalithApp.Client\HexalithApp.Client.csproj" />
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="$(AspNetCorePackagesVersion)" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCorePackagesVersion)" />
+		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(AspNetCorePackagesVersion)" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(AspNetCorePackagesVersion)" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(AspNetCorePackagesVersion)" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="$(AspNetCorePackagesVersion)" />
+	</ItemGroup>
 </Project>
