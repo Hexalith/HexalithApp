@@ -14,12 +14,57 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{ABF08610
 		.gitignore = .gitignore
 		src\HexalithApp.Build\Dependencies.props = src\HexalithApp.Build\Dependencies.props
 		Directory.Build.props = Directory.Build.props
+		.github\workflows\hexalith_build.yaml = .github\workflows\hexalith_build.yaml
 		LICENSE = LICENSE
 		src\HexalithApp.Build\Project.Common.props = src\HexalithApp.Build\Project.Common.props
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.Shared", "HexalithApp.Shared\HexalithApp.Shared.csproj", "{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexalithApp.Shared", "HexalithApp.Shared\HexalithApp.Shared.csproj", "{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hexalith", "Hexalith", "{DEBEAB07-5079-4E72-800F-54626056F572}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{DF1C1E34-4EBB-4DA2-B56D-94585870801C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{9864980A-B470-4DB0-B8ED-040B0638CD42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{087A43EE-0CCE-4173-8559-0F38C31A7F96}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Domain.Abstractions", "Hexalith\src\Core\Domain\Hexalith.Domain.Abstractions\Hexalith.Domain.Abstractions.csproj", "{D8422588-1EA1-469A-9CB5-959325B99117}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{7E8EAC77-6A98-49C2-9710-316EA69B3260}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{674C72F9-8F7A-40EC-B05A-CD89CB020AA8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Extensions", "Hexalith\src\Core\Common\Hexalith.Extensions\Hexalith.Extensions.csproj", "{5BBA1727-84C0-4D5C-832F-4EE7B0039E38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_build", "_build", "{90D9C5F5-B249-4139-AE09-28B623D62C7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.TestMocks", "Hexalith\src\Core\Common\Hexalith.TestMocks\Hexalith.TestMocks.csproj", "{2639AA77-ADA9-46CD-94A8-C1D010E17BAF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Application", "Hexalith\src\Core\Application\Hexalith.Application\Hexalith.Application.csproj", "{22115157-130C-45F4-BDF7-4CCC1FC2386B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Domain.ConversationThreads", "Hexalith\src\Core\Domain\Hexalith.Domain.ConversationThreads\Hexalith.Domain.ConversationThreads.csproj", "{C319356D-D20F-45E4-BFFC-C2C86906B12B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Domain.Hierarchies", "Hexalith\src\Core\Domain\Hexalith.Domain.Hierarchies\Hexalith.Domain.Hierarchies.csproj", "{9EC5A3E7-A952-4EA3-924D-83DF6998A4E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Domain.Organizations", "Hexalith\src\Core\Domain\Hexalith.Domain.Organizations\Hexalith.Domain.Organizations.csproj", "{C7E4AFEB-48DD-471E-B176-6A6BAE466DED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Domain.Surveys", "Hexalith\src\Core\Domain\Hexalith.Domain.Surveys\Hexalith.Domain.Surveys.csproj", "{317CC037-857F-4235-A75E-5F1EDD57AEC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Domain.UserConversationProfiles", "Hexalith\src\Core\Domain\Hexalith.Domain.UserConversations\Hexalith.Domain.UserConversationProfiles.csproj", "{E4D4031C-FEE0-4AD4-9FE9-50F44EE60E52}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Application.Abstractions", "Hexalith\src\Core\Application\Hexalith.Application.Abstractions\Hexalith.Application.Abstractions.csproj", "{15DCC60C-E602-462A-AA90-911A0EC55026}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Application.ConversationThreads", "Hexalith\src\Core\Application\Hexalith.Application.ConversationThreads\Hexalith.Application.ConversationThreads.csproj", "{DF04DD91-EF4C-49B3-96A0-20013CDFA5CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Application.Organizations", "Hexalith\src\Core\Application\Hexalith.Application.Organizations\Hexalith.Application.Organizations.csproj", "{76A89EB8-9A2A-4EC4-91D4-26450BC46EDE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Application.TopologicalSorting", "Hexalith\src\Core\Application\Hexalith.Application.TopologicalSorting\Hexalith.Application.TopologicalSorting.csproj", "{BD563D4E-C541-43AB-8842-4AF1CD842D7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AB3160B9-A4EB-4FAB-BB11-19996ABAF63F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexalithApp.UnitTests", "test\HexalithApp.UnitTests\HexalithApp.UnitTests.csproj", "{C3123565-F3DB-472D-AA0F-3BF3C325013B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +90,87 @@ Global
 		{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1557D1B1-D3C5-4A95-BE13-10C599B15CCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8422588-1EA1-469A-9CB5-959325B99117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8422588-1EA1-469A-9CB5-959325B99117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8422588-1EA1-469A-9CB5-959325B99117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8422588-1EA1-469A-9CB5-959325B99117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BBA1727-84C0-4D5C-832F-4EE7B0039E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BBA1727-84C0-4D5C-832F-4EE7B0039E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BBA1727-84C0-4D5C-832F-4EE7B0039E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BBA1727-84C0-4D5C-832F-4EE7B0039E38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2639AA77-ADA9-46CD-94A8-C1D010E17BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2639AA77-ADA9-46CD-94A8-C1D010E17BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2639AA77-ADA9-46CD-94A8-C1D010E17BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2639AA77-ADA9-46CD-94A8-C1D010E17BAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22115157-130C-45F4-BDF7-4CCC1FC2386B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22115157-130C-45F4-BDF7-4CCC1FC2386B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22115157-130C-45F4-BDF7-4CCC1FC2386B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22115157-130C-45F4-BDF7-4CCC1FC2386B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C319356D-D20F-45E4-BFFC-C2C86906B12B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C319356D-D20F-45E4-BFFC-C2C86906B12B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C319356D-D20F-45E4-BFFC-C2C86906B12B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C319356D-D20F-45E4-BFFC-C2C86906B12B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EC5A3E7-A952-4EA3-924D-83DF6998A4E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EC5A3E7-A952-4EA3-924D-83DF6998A4E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EC5A3E7-A952-4EA3-924D-83DF6998A4E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EC5A3E7-A952-4EA3-924D-83DF6998A4E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7E4AFEB-48DD-471E-B176-6A6BAE466DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7E4AFEB-48DD-471E-B176-6A6BAE466DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7E4AFEB-48DD-471E-B176-6A6BAE466DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7E4AFEB-48DD-471E-B176-6A6BAE466DED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317CC037-857F-4235-A75E-5F1EDD57AEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317CC037-857F-4235-A75E-5F1EDD57AEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317CC037-857F-4235-A75E-5F1EDD57AEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317CC037-857F-4235-A75E-5F1EDD57AEC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4D4031C-FEE0-4AD4-9FE9-50F44EE60E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D4031C-FEE0-4AD4-9FE9-50F44EE60E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D4031C-FEE0-4AD4-9FE9-50F44EE60E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D4031C-FEE0-4AD4-9FE9-50F44EE60E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15DCC60C-E602-462A-AA90-911A0EC55026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15DCC60C-E602-462A-AA90-911A0EC55026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15DCC60C-E602-462A-AA90-911A0EC55026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15DCC60C-E602-462A-AA90-911A0EC55026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF04DD91-EF4C-49B3-96A0-20013CDFA5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF04DD91-EF4C-49B3-96A0-20013CDFA5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF04DD91-EF4C-49B3-96A0-20013CDFA5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF04DD91-EF4C-49B3-96A0-20013CDFA5CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76A89EB8-9A2A-4EC4-91D4-26450BC46EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76A89EB8-9A2A-4EC4-91D4-26450BC46EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76A89EB8-9A2A-4EC4-91D4-26450BC46EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76A89EB8-9A2A-4EC4-91D4-26450BC46EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD563D4E-C541-43AB-8842-4AF1CD842D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD563D4E-C541-43AB-8842-4AF1CD842D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD563D4E-C541-43AB-8842-4AF1CD842D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD563D4E-C541-43AB-8842-4AF1CD842D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3123565-F3DB-472D-AA0F-3BF3C325013B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3123565-F3DB-472D-AA0F-3BF3C325013B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3123565-F3DB-472D-AA0F-3BF3C325013B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3123565-F3DB-472D-AA0F-3BF3C325013B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DF1C1E34-4EBB-4DA2-B56D-94585870801C} = {DEBEAB07-5079-4E72-800F-54626056F572}
+		{9864980A-B470-4DB0-B8ED-040B0638CD42} = {DEBEAB07-5079-4E72-800F-54626056F572}
+		{087A43EE-0CCE-4173-8559-0F38C31A7F96} = {DEBEAB07-5079-4E72-800F-54626056F572}
+		{D8422588-1EA1-469A-9CB5-959325B99117} = {DF1C1E34-4EBB-4DA2-B56D-94585870801C}
+		{7E8EAC77-6A98-49C2-9710-316EA69B3260} = {DEBEAB07-5079-4E72-800F-54626056F572}
+		{674C72F9-8F7A-40EC-B05A-CD89CB020AA8} = {DEBEAB07-5079-4E72-800F-54626056F572}
+		{5BBA1727-84C0-4D5C-832F-4EE7B0039E38} = {7E8EAC77-6A98-49C2-9710-316EA69B3260}
+		{90D9C5F5-B249-4139-AE09-28B623D62C7E} = {DEBEAB07-5079-4E72-800F-54626056F572}
+		{2639AA77-ADA9-46CD-94A8-C1D010E17BAF} = {7E8EAC77-6A98-49C2-9710-316EA69B3260}
+		{22115157-130C-45F4-BDF7-4CCC1FC2386B} = {9864980A-B470-4DB0-B8ED-040B0638CD42}
+		{C319356D-D20F-45E4-BFFC-C2C86906B12B} = {DF1C1E34-4EBB-4DA2-B56D-94585870801C}
+		{9EC5A3E7-A952-4EA3-924D-83DF6998A4E2} = {DF1C1E34-4EBB-4DA2-B56D-94585870801C}
+		{C7E4AFEB-48DD-471E-B176-6A6BAE466DED} = {DF1C1E34-4EBB-4DA2-B56D-94585870801C}
+		{317CC037-857F-4235-A75E-5F1EDD57AEC8} = {DF1C1E34-4EBB-4DA2-B56D-94585870801C}
+		{E4D4031C-FEE0-4AD4-9FE9-50F44EE60E52} = {DF1C1E34-4EBB-4DA2-B56D-94585870801C}
+		{15DCC60C-E602-462A-AA90-911A0EC55026} = {9864980A-B470-4DB0-B8ED-040B0638CD42}
+		{DF04DD91-EF4C-49B3-96A0-20013CDFA5CC} = {9864980A-B470-4DB0-B8ED-040B0638CD42}
+		{76A89EB8-9A2A-4EC4-91D4-26450BC46EDE} = {9864980A-B470-4DB0-B8ED-040B0638CD42}
+		{BD563D4E-C541-43AB-8842-4AF1CD842D7C} = {9864980A-B470-4DB0-B8ED-040B0638CD42}
+		{C3123565-F3DB-472D-AA0F-3BF3C325013B} = {AB3160B9-A4EB-4FAB-BB11-19996ABAF63F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C98EBA45-B46B-42EF-B848-3A62BCAD721B}

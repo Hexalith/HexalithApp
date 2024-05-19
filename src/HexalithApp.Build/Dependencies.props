@@ -4,8 +4,8 @@
 		<MicrosoftFluentUIVersion>4.*</MicrosoftFluentUIVersion>
 		<MicrosoftNETTestSdkVersion>17.9.0</MicrosoftNETTestSdkVersion>
 		<StyleCopAnalyzersVersion>1.2.0-beta.556</StyleCopAnalyzersVersion>
-		<XUnitRunnerVisualStudioVersion>2.5.7</XUnitRunnerVisualStudioVersion>
-		<XUnitVersion>2.7.0</XUnitVersion>
+		<XUnitRunnerVisualStudioVersion>2.8.0</XUnitRunnerVisualStudioVersion>
+		<XUnitVersion>2.8.0</XUnitVersion>
 		<MicrosoftVisualStudioThreadingAnalyzersVersion>17.10.48</MicrosoftVisualStudioThreadingAnalyzersVersion>
 	</PropertyGroup>
 </Project>
