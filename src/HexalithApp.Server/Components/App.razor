@@ -1,19 +1,53 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using System.Net
+@using Microsoft.AspNetCore.Http.Extensions
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/" />
-    <link rel="stylesheet" href="app.css" />
-    <link rel="stylesheet" href="HexalithApp.Server.styles.css" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <HeadOutlet />
-</head>
+@inject NavigationManager NavigationManager
+@inject IRouteManager RouteManager
 
-<body>
-    <Routes />
-    <script src="_framework/blazor.web.js"></script>
-</body>
+@if (_initialized)
+{
+	<!DOCTYPE html>
+	<html lang="en">
 
-</html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<base href="/" />
+		<link rel="stylesheet" href="app.css" />
+		<link rel="stylesheet" href="HexalithApp.Server.styles.css" />
+		<link rel="icon" type="image/x-icon" href="favicon.ico" />
+		<HeadOutlet />
+	</head>
+
+	<body>
+		<Routes />
+		<script src="_framework/blazor.web.js"></script>
+	</body>
+
+	</html>
+}
+@code
+{
+	//  CascadingParameter is required to access HttpContext
+	[CascadingParameter]
+	HttpContext Context { get; set; }
+	private bool _initialized;
+
+	protected override async Task OnInitializedAsync()
+	{
+		_initialized = true;
+		var url = new Uri(WebUtility.UrlDecode(Context.Request.GetEncodedUrl()));
+		await base.OnInitializedAsync();
+	}
+	private void HandleRedirect(Uri url)
+	{
+		// Get the mapped route for the current path
+		var alias = RouteManager.MapPath(url.AbsolutePath);
+		// get first default alias
+		if (!alias.Equals(url.AbsolutePath, StringComparison.OrdinalIgnoreCase))
+		{
+			// redirect to default alias
+			NavigationManager.NavigateTo(alias);
+		}
+	}
+}
