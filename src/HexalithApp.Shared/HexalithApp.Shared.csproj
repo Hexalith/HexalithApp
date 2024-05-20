@@ -25,9 +25,5 @@
         <PackageReference Include="Hexalith.Domain.Abstractions" Version="$(HexalithVersion)" />
         <PackageReference Include="Hexalith.UI.Components" Version="$(HexalithVersion)" />
     </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Application\" />
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
 
 </Project>
