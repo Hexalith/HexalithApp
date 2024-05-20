@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+    <Import Project="../../Hexalith.Modules.StoreApp.props" />
 
     <PropertyGroup>
         <TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
@@ -66,7 +67,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="$(HexalithUsersPath)\src\UI\Hexalith.UI.Components\Hexalith.UI.Components.csproj" />
+      <ProjectReference Include="..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
     </ItemGroup>
 
 </Project>

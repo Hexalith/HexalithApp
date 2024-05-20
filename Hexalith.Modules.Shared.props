@@ -1,18 +1,10 @@
 <Project>
 	<PropertyGroup>
-		<HexalithParentProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.props', '$(MSBuildThisFileDirectory)..'))</HexalithParentProps>
+		<HexalithModulesSharedProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.Modules.Shared.props', '$(MSBuildThisFileDirectory)..'))</HexalithModulesSharedProps>
 	</PropertyGroup>
-	<Import Project="$(HexalithParentProps)" Condition=" '$(HexalithParentProps)' != '' " />
+	<Import Project="$(HexalithModulesSharedProps)" Condition=" '$(HexalithModulesSharedProps)' != '' " />
 	<PropertyGroup>
-		<HexalithPath Condition="'$(HexalithPath)' == ''">$(MSBuildThisFileDirectory)Hexalith\</HexalithPath>
-		<HexalithVersion Condition="'$(HexalithVersion)' == ''">*</HexalithVersion>
-		<HexalithInventoriesPath Condition="'$(HexalithInventoriesPath)' == ''">$(HexalithPath)..\Hexalith.Inventories\</HexalithInventoriesPath>
-		<HexalithInventoriesVersion Condition="'$(HexalithInventoriesVersion)' == ''">*</HexalithInventoriesVersion>
-		<HexalithPartiesPath Condition="'$(HexalithPartiesPath)' == ''">$(HexalithPath)..\Hexalith.Parties\</HexalithPartiesPath>
-		<HexalithPartiesVersion Condition="'$(HexalithPartiesVersion)' == ''">*</HexalithPartiesVersion>
-		<HexalithExternalSystemsPath Condition="'$(HexalithExternalSystemsPath)' == ''">$(HexalithPath)..\Hexalith.ExternalSystems\</HexalithExternalSystemsPath>
-		<HexalithExternalSystemsVersion Condition="'$(HexalithExternalSystemsVersion)' == ''">*</HexalithExternalSystemsVersion>
-		<HexalithSalesPath Condition="'$(HexalithSalesPath)' == ''">$(HexalithPath)..\Hexalith.Sales\</HexalithSalesPath>
-		<HexalithSalesVersion Condition="'$(HexalithSalesVersion)' == ''">*</HexalithSalesVersion>
 	</PropertyGroup>
+	<ItemGroup>
+	</ItemGroup>
 </Project>
