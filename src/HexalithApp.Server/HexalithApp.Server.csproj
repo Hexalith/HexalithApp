@@ -9,9 +9,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\HexalithApp.Client\HexalithApp.Client.csproj" />
+	</ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
-		<ProjectReference Include="..\HexalithApp.Client\HexalithApp.Client.csproj" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="$(AspNetCorePackagesVersion)" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCorePackagesVersion)" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(AspNetCorePackagesVersion)" />

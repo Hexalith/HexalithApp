@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
-
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -7,13 +6,11 @@
 		<NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
 		<StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
 	</PropertyGroup>
-
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="$(AspNetCorePackagesVersion)" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="$(AspNetCorePackagesVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
+	  <ProjectReference Include="..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
 	</ItemGroup>
-
 </Project>
