@@ -1,9 +1,5 @@
-﻿<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="new[] 
-    { 
-        typeof(HexalithApp.Client._Imports).Assembly,
-        typeof(Hexalith.UI.Components._Imports).Assembly,
-        typeof(Microsoft.FluentUI.AspNetCore.Components._Imports).Assembly
-    }">
+﻿@using Hexalith.Application.Modules
+<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="ModuleManager.Modules.SelectMany(p => p.Value.PresentationAssemblies)">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
             <NotAuthorized>
