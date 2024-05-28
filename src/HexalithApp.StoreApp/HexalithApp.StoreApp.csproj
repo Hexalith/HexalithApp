@@ -66,7 +66,13 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="$(MicrosoftExtensionsPackagesVersion)" />
     </ItemGroup>
 
-    <ItemGroup>
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(BuildingByReSharper)' == 'true'">
+		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.ClientApp\Hexalith.Infrastructure.ClientApp.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
+		<PackageReference Include="Hexalith.Infrastructure.ClientApp" Version="$(HexalithVersion)" />
+	</ItemGroup>
+	<ItemGroup>
       <ProjectReference Include="..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
     </ItemGroup>
 

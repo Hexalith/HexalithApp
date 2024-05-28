@@ -30,7 +30,9 @@ public class ClientModuleManagementService : IModuleManagementService
     /// <inheritdoc/>
     public async Task<ModuleInformation> GetApplicationInformationAsync()
         => _applicationInformation
-            ??= await _client.GetFromJsonAsync<ModuleInformation>(ModuleConstants.ApplicationInformationApi).ConfigureAwait(false)
+            ??= await _client
+                .GetFromJsonAsync<ModuleInformation>(ModuleConstants.ApplicationInformationApi)
+                .ConfigureAwait(false)
             ?? throw new HttpRequestException("Invalid empty response from " + ModuleConstants.ApplicationInformationApi);
 
     /// <inheritdoc/>

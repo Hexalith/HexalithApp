@@ -4,7 +4,7 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace HexalithApp.Client.Modules;
+namespace HexalithApp.Server.Modules;
 
 using System.Collections.Generic;
 using System.Reflection;
@@ -15,23 +15,23 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// The Hexalith client module.
+/// The Hexalith server module.
 /// Implements the <see cref="IApplicationModule" />.
 /// </summary>
 /// <seealso cref="IApplicationModule" />
-public class HexalithClientModule : IApplicationModule
+public class HexalithServerModule : IServerApplicationModule
 {
     /// <inheritdoc/>
     public IEnumerable<string> Dependencies => [];
 
     /// <inheritdoc/>
-    public string Description => "Hexalith client module";
+    public string Description => "Hexalith server module";
 
     /// <inheritdoc/>
-    public string Id => "Hexalith.Client";
+    public string Id => "Hexalith.Server";
 
     /// <inheritdoc/>
-    public string Name => "Hexalith client";
+    public string Name => "Hexalith server";
 
     /// <inheritdoc/>
     public int OrderWeight => 0;
@@ -47,5 +47,5 @@ public class HexalithClientModule : IApplicationModule
 
     /// <inheritdoc/>
     public void AddServices(IServiceCollection services, IConfiguration configuration)
-        => services.AddSingleton<HexalithClientModule>();
+        => services.AddSingleton<HexalithServerModule>();
 }

@@ -1,8 +1,12 @@
 namespace HexalithApp.Server;
 
+using Hexalith.Application.Modules.Modules;
 using Hexalith.Infrastructure.ClientAppOnServer.Helpers;
 
+using HexalithApp.Client.Modules;
 using HexalithApp.Server.Components;
+using HexalithApp.Server.Modules;
+using HexalithApp.Shared.Modules.Models;
 
 public static class Program
 {
@@ -14,6 +18,9 @@ public static class Program
             "1.0.0",
             registerActors: _ => { },
             args);
+        _ = builder.Services.AddSingleton<IApplicationModule, HexalithSharedModule>();
+        _ = builder.Services.AddSingleton<IApplicationModule, HexalithClientModule>();
+        _ = builder.Services.AddSingleton<IApplicationModule, HexalithServerModule>();
 
         //// Add services to the container.
         // _ = builder.Services.AddRazorComponents()

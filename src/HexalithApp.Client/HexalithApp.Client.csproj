@@ -14,4 +14,10 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
 	</ItemGroup>
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(BuildingByReSharper)' == 'true'">
+		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.ClientAppOnWasm\Hexalith.Infrastructure.ClientAppOnWasm.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
+		<PackageReference Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="$(HexalithVersion)" />
+	</ItemGroup>
 </Project>

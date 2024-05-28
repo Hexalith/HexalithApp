@@ -12,6 +12,12 @@
 	<ItemGroup>
 		<ProjectReference Include="..\HexalithApp.Client\HexalithApp.Client.csproj" />
 	</ItemGroup>
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(BuildingByReSharper)' == 'true'">
+		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.ClientAppOnServer\Hexalith.Infrastructure.ClientAppOnServer.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
+		<PackageReference Include="Hexalith.Infrastructure.ClientAppOnServer" Version="$(HexalithVersion)" />
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />

@@ -4,12 +4,16 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace HexalithClient.Shared.Routes;
+namespace HexalithApp.Shared.Modules.Models;
 
 using Hexalith.Application.Modules.Routes;
 
+/// <summary>
+/// Represents the route provider for the HexalithClient module.
+/// </summary>
 public sealed class HexalithClientRouteProvider : IRouteProvider
 {
     /// <inheritdoc/>
-    public string MapPath(string path) => string.IsNullOrWhiteSpace(path) ? "/HexalithClient" : path;
+    public string MapPath(string path)
+        => string.IsNullOrWhiteSpace(path) ? "/hexalith" : path;
 }

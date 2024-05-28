@@ -1,5 +1,6 @@
 ﻿@using Hexalith.Application.Modules
-<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="ModuleManager.Modules.SelectMany(p => p.Value.PresentationAssemblies)">
+@inject ModuleManager ModuleManager
+<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="ModuleManager.ClientPresentationAssemblies">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
             <NotAuthorized>

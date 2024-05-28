@@ -4,7 +4,7 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace HexalithApp.Client.Modules;
+namespace HexalithApp.Shared.Modules.Models;
 
 using System.Collections.Generic;
 using System.Reflection;
@@ -15,23 +15,21 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// The Hexalith client module.
-/// Implements the <see cref="IApplicationModule" />.
+/// Represents the HexalithWeb module for customer management.
 /// </summary>
-/// <seealso cref="IApplicationModule" />
-public class HexalithClientModule : IApplicationModule
+public class HexalithSharedModule : ISharedApplicationModule
 {
     /// <inheritdoc/>
     public IEnumerable<string> Dependencies => [];
 
     /// <inheritdoc/>
-    public string Description => "Hexalith client module";
+    public string Description => "Hexalith module";
 
     /// <inheritdoc/>
-    public string Id => "Hexalith.Client";
+    public string Id => "Hexalith.Shared";
 
     /// <inheritdoc/>
-    public string Name => "Hexalith client";
+    public string Name => "Hexalith shared module";
 
     /// <inheritdoc/>
     public int OrderWeight => 0;
@@ -40,12 +38,13 @@ public class HexalithClientModule : IApplicationModule
     public string Path => "hexalith";
 
     /// <inheritdoc/>
-    public IEnumerable<Assembly> PresentationAssemblies => [GetType().Assembly];
+    public IEnumerable<Assembly> PresentationAssemblies
+        => [GetType().Assembly];
 
     /// <inheritdoc/>
     public string Version => "1.0.0";
 
     /// <inheritdoc/>
     public void AddServices(IServiceCollection services, IConfiguration configuration)
-        => services.AddSingleton<HexalithClientModule>();
+        => _ = services.AddSingleton<HexalithClientRouteProvider>();
 }
