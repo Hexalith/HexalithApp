@@ -2,7 +2,6 @@ namespace HexalithApp.Client;
 
 using Hexalith.Infrastructure.ClientAppOnWasm.Helpers;
 using Hexalith.UI.Components;
-using Hexalith.UI.Components.Helpers;
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -21,7 +20,6 @@ internal class Program
                 "Hexalith web assembly application",
                 "Fiveforty Inc",
                 "0.0.1"));
-        _ = builder.Services.AddFluentUITheme();
         await builder.Build().RunAsync().ConfigureAwait(false);
     }
 }

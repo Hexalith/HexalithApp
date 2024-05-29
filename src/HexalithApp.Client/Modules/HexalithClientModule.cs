@@ -19,7 +19,7 @@ using Microsoft.Extensions.DependencyInjection;
 /// Implements the <see cref="IApplicationModule" />.
 /// </summary>
 /// <seealso cref="IApplicationModule" />
-public class HexalithClientModule : IApplicationModule
+public class HexalithClientModule : IClientApplicationModule
 {
     /// <inheritdoc/>
     public IEnumerable<string> Dependencies => [];

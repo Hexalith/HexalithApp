@@ -3,7 +3,6 @@
 using System.Security.Claims;
 
 using Hexalith.UI.Components;
-using Hexalith.UI.Components.Helpers;
 
 using HexalithApp.StoreApp.Security;
 
@@ -27,7 +26,6 @@ public static class MauiProgram
                 "Hexalith store application",
                 "Fiveforty Inc",
                 "0.0.1"));
-        builder.Services.AddFluentUITheme();
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
         builder.Logging.AddDebug();

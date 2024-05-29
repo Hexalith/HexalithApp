@@ -3,9 +3,9 @@
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 
+using HexalithApp.Shared.Models;
 using HexalithApp.Shared.Modules;
-using HexalithApp.Shared.Modules.Models;
-using HexalithApp.Shared.Modules.Services;
+using HexalithApp.Shared.Services;
 
 /// <summary>
 /// Client proxy for module management.

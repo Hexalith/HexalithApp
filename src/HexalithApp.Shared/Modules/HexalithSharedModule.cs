@@ -4,7 +4,7 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace HexalithApp.Shared.Modules.Models;
+namespace HexalithApp.Shared.Modules;
 
 using System.Collections.Generic;
 using System.Reflection;

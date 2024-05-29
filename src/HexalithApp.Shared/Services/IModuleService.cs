@@ -1,4 +1,4 @@
-﻿namespace HexalithApp.Shared.Modules.Services;
+﻿namespace HexalithApp.Shared.Services;
 
 /// <summary>
 /// Represents an module service.

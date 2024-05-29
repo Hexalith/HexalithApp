@@ -13,8 +13,9 @@ using Hexalith.Application.Modules.Configurations;
 
 using HexalithApp.Client.Modules;
 using HexalithApp.Server.Modules;
-using HexalithApp.Shared.Modules.Models;
+using HexalithApp.Shared.Modules;
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -22,6 +23,20 @@ using Moq;
 
 public class ModuleManagerTest
 {
+    [Fact]
+    public void DummyServicesFromModulesShouldBeAdded()
+    {
+        ServiceCollection services = [];
+        Mock<IConfiguration> configurationMock = new();
+
+        ModuleManager.AddSharedModulesServices(services, configurationMock.Object);
+
+        // Check that the services have been added
+        _ = services
+            .Should()
+            .HaveCount(1);
+    }
+
     [Fact]
     public void ModuleManagerShouldReturnClientAssemby()
     {
@@ -33,7 +48,15 @@ public class ModuleManagerTest
         _ = manager
             .ClientPresentationAssemblies
             .Should()
+            .HaveCount(2);
+        _ = manager
+            .ClientPresentationAssemblies
+            .Should()
             .Contain(typeof(HexalithClientModule).Assembly);
+        _ = manager
+            .ClientPresentationAssemblies
+            .Should()
+            .Contain(typeof(HexalithSharedModule).Assembly);
     }
 
     [Fact]
@@ -63,7 +86,19 @@ public class ModuleManagerTest
         _ = manager
             .ServerPresentationAssemblies
             .Should()
+            .HaveCount(3);
+        _ = manager
+            .ServerPresentationAssemblies
+            .Should()
             .Contain(typeof(HexalithServerModule).Assembly);
+        _ = manager
+            .ServerPresentationAssemblies
+            .Should()
+            .Contain(typeof(HexalithSharedModule).Assembly);
+        _ = manager
+            .ServerPresentationAssemblies
+            .Should()
+            .Contain(typeof(HexalithClientModule).Assembly);
     }
 
     [Fact]
@@ -96,26 +131,5 @@ public class ModuleManagerTest
             .OfType<HexalithSharedModule>()
             .Should()
             .HaveCount(1);
-    }
-
-    [Fact]
-    public void ReflectionShouldFindClientModuleType()
-    {
-        _ = ModuleManager.ClientModuleTypes.Should().HaveCount(1);
-        _ = ModuleManager.ClientModuleTypes.FirstOrDefault(p => p == typeof(HexalithClientModule));
-    }
-
-    [Fact]
-    public void ReflectionShouldFindServerModuleType()
-    {
-        _ = ModuleManager.ServerModuleTypes.Should().HaveCount(1);
-        _ = ModuleManager.ServerModuleTypes.FirstOrDefault(p => p == typeof(HexalithServerModule));
-    }
-
-    [Fact]
-    public void ReflectionShouldFindSharedModuleType()
-    {
-        _ = ModuleManager.SharedModuleTypes.Should().HaveCount(1);
-        _ = ModuleManager.SharedModuleTypes.FirstOrDefault(p => p == typeof(HexalithSharedModule));
     }
 }

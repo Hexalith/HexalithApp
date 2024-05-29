@@ -1,7 +1,9 @@
 ﻿@using System.Net
+@using Hexalith.Application.Modules
 @using Microsoft.AspNetCore.Http.Extensions
 
 @inject NavigationManager NavigationManager
+@inject ModuleManager ModuleManager
 @inject IRouteManager RouteManager
 
 @if (_initialized)
@@ -29,19 +31,26 @@
 }
 @code
 {
-	//  CascadingParameter is required to access HttpContext
-	[CascadingParameter]
-	HttpContext Context { get; set; }
+		//  CascadingParameter is required to access HttpContext
+		[CascadingParameter]
+		HttpContext? Context { get; set; }
 	private bool _initialized;
 
-	protected override async Task OnInitializedAsync()
+	protected override void OnInitialized()
 	{
+		if (Context != null)
+		{
+			var url = new Uri(WebUtility.UrlDecode(Context.Request.GetEncodedUrl()));
+			HandleRedirect(url);
+		}
 		_initialized = true;
-		var url = new Uri(WebUtility.UrlDecode(Context.Request.GetEncodedUrl()));
-		await base.OnInitializedAsync();
 	}
 	private void HandleRedirect(Uri url)
 	{
+		if (string.IsNullOrWhiteSpace(url.AbsolutePath) || url.AbsolutePath.Equals("/",StringComparison.OrdinalIgnoreCase))
+		{
+			NavigationManager.NavigateTo(ModuleManager.HomeRoute);
+		}
 		// Get the mapped route for the current path
 		var alias = RouteManager.MapPath(url.AbsolutePath);
 		// get first default alias

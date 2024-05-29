@@ -6,7 +6,7 @@ using Hexalith.Infrastructure.ClientAppOnServer.Helpers;
 using HexalithApp.Client.Modules;
 using HexalithApp.Server.Components;
 using HexalithApp.Server.Modules;
-using HexalithApp.Shared.Modules.Models;
+using HexalithApp.Shared.Modules;
 
 public static class Program
 {

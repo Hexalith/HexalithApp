@@ -11,7 +11,7 @@ using System.Reflection;
 
 using Hexalith.Application.Modules.Modules;
 
-using HexalithApp.Shared.Modules.Models;
+using HexalithApp.Shared.Modules;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
