@@ -28,4 +28,10 @@
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(AspNetCorePackagesVersion)" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="$(AspNetCorePackagesVersion)" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Content Update="wwwroot\app.css">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
 </Project>
