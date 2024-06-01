@@ -44,7 +44,11 @@ public class HexalithSharedModule : ISharedApplicationModule
     /// <inheritdoc/>
     public string Version => "1.0.0";
 
-    /// <inheritdoc/>
-    public void AddServices(IServiceCollection services, IConfiguration configuration)
+    /// <summary>
+    /// Adds services to the service collection.
+    /// </summary>
+    /// <param name="services">The service collection.</param>
+    /// <param name="configuration">The configuration.</param>
+    public static void AddServices(IServiceCollection services, IConfiguration configuration)
         => _ = services.AddSingleton<HexalithClientRouteProvider>();
 }
