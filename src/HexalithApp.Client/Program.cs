@@ -1,5 +1,6 @@
 namespace HexalithApp.Client;
 
+using Hexalith.Application.Modules;
 using Hexalith.Infrastructure.ClientAppOnWasm.Helpers;
 using Hexalith.UI.Components;
 
@@ -11,7 +12,6 @@ internal class Program
     {
         WebAssemblyHostBuilder builder = WebAssemblyClientHelper.CreateHexalithWasmClient(args);
 
-        // _ = builder.Services.AddAuthorizationCore();
         // _ = builder.Services.AddCascadingAuthenticationState();
         // _ = builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();
         _ = builder.Services.AddSingleton(new ApplicationInformation(
@@ -20,6 +20,8 @@ internal class Program
                 "Hexalith web assembly application",
                 "Fiveforty Inc",
                 "0.0.1"));
+        ModuleManager.AddSharedModulesServices(builder.Services, builder.Configuration);
+        ModuleManager.AddClientModulesServices(builder.Services, builder.Configuration);
         await builder.Build().RunAsync().ConfigureAwait(false);
     }
 }
