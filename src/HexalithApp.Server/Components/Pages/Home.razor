@@ -1,11 +1,10 @@
-﻿@page "/home"
-@page "/"
+﻿@page "/"
 @inject NavigationManager Navigation
+@inject IApplication Application
 
 @code {
     protected override void OnInitialized()
     {
-        // Custom logic to determine the home page
-        Navigation.NavigateTo("/dashboard"); // Or "/welcome" based on your logic
+        Navigation.NavigateTo(Application.HomePath); 
     }
 }

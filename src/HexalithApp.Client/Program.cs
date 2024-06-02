@@ -1,27 +1,25 @@
 namespace HexalithApp.Client;
 
-using Hexalith.Application.Modules;
+using Hexalith.Application.Modules.Applications;
 using Hexalith.Infrastructure.ClientAppOnWasm.Helpers;
-using Hexalith.UI.Components;
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-internal class Program
+/// <summary>
+/// Represents a client application.
+/// </summary>
+public static class Program
 {
-    private static async Task Main(string[] args)
+    /// <summary>
+    /// The entry point of the application.
+    /// </summary>
+    /// <param name="args">Arguments.</param>
+    /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
+    public static async Task Main(string[] args)
     {
         WebAssemblyHostBuilder builder = WebAssemblyClientHelper.CreateHexalithWasmClient(args);
 
-        // _ = builder.Services.AddCascadingAuthenticationState();
-        // _ = builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();
-        _ = builder.Services.AddSingleton(new ApplicationInformation(
-                "Hexalith",
-                "Hexalith",
-                "Hexalith web assembly application",
-                "Fiveforty Inc",
-                "0.0.1"));
-        ModuleManager.AddSharedModulesServices(builder.Services, builder.Configuration);
-        ModuleManager.AddClientModulesServices(builder.Services, builder.Configuration);
+        HexalithApplication.AddClientServices(builder.Services, builder.Configuration);
         await builder.Build().RunAsync().ConfigureAwait(false);
     }
 }

@@ -1,9 +1,10 @@
 ﻿@using System.Net
 @using Hexalith.Application.Modules
+@using Hexalith.Application.Modules.Applications
 @using Microsoft.AspNetCore.Http.Extensions
 
 @inject NavigationManager NavigationManager
-@inject ModuleManager ModuleManager
+@inject IServerApplication Application
 @inject IRouteManager RouteManager
 
 @if (_initialized)
@@ -18,13 +19,13 @@
 		<link rel="stylesheet" href="app.css" />
 		<link rel="stylesheet" href="HexalithApp.Server.styles.css" />	
 		<link rel="icon" type="image/x-icon" href="favicon.ico" />
-		<HeadOutlet />
+		<HeadOutlet @rendermode="InteractiveServer" />
 	</head>
 
 	<body>
-		<Routes />
+		<Routes @rendermode="InteractiveServer" />
+		<script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
 		<script src="_framework/blazor.web.js"></script>
-		@* <script src="_framework/aspnetcore-browser-refresh.js"></script> *@
 	</body>
 
 	</html>
@@ -50,7 +51,7 @@
 	{
 		if (string.IsNullOrWhiteSpace(url.AbsolutePath) || url.AbsolutePath.Equals("/", StringComparison.OrdinalIgnoreCase))
 		{
-			NavigationManager.NavigateTo(ModuleManager.HomeRoute);
+			NavigationManager.NavigateTo(Application.HomePath);
 		}
 		// Get the mapped route for the current path
 		var alias = RouteManager.MapPath(url.AbsolutePath);
