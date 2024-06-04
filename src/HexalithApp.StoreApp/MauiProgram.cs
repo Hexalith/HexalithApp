@@ -2,8 +2,6 @@
 
 using System.Security.Claims;
 
-using Hexalith.UI.Components;
-
 using HexalithApp.StoreApp.Security;
 
 using Microsoft.AspNetCore.Components.Authorization;
@@ -20,12 +18,6 @@ public static class MauiProgram
             .ConfigureFonts(fonts => fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular"));
 
         builder.Services.AddMauiBlazorWebView();
-        _ = builder.Services.AddSingleton(new ApplicationInformation(
-                "Hexalith",
-                "Hexalith",
-                "Hexalith store application",
-                "Fiveforty Inc",
-                "0.0.1"));
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
         builder.Logging.AddDebug();
