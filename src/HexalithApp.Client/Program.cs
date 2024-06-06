@@ -1,6 +1,5 @@
 namespace HexalithApp.Client;
 
-using Hexalith.Application.Modules.Applications;
 using Hexalith.Infrastructure.ClientAppOnWasm.Helpers;
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -19,7 +18,6 @@ public static class Program
     {
         WebAssemblyHostBuilder builder = WebAssemblyClientHelper.CreateHexalithWasmClient(args);
 
-        HexalithApplication.AddClientServices(builder.Services, builder.Configuration);
         await builder.Build().RunAsync().ConfigureAwait(false);
     }
 }

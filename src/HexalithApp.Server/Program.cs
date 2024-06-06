@@ -22,7 +22,6 @@ public static class Program
             "1.0.0",
             registerActors: _ => { },
             args);
-        HexalithApplication.AddServerServices(builder.Services, builder.Configuration);
         WebApplication app = builder.Build();
         _ = app.UseHexalithWebApplication<App>();
 
