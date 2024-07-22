@@ -17,7 +17,8 @@ public static class Program
     public static async Task Main(string[] args)
     {
         WebAssemblyHostBuilder builder = WebAssemblyClientHelper.CreateHexalithWasmClient(args);
-
-        await builder.Build().RunAsync().ConfigureAwait(false);
+        WebAssemblyHost app = builder.Build();
+        await app.UseHexalithUserDefinedCultureAsync().ConfigureAwait(false);
+        await app.RunAsync().ConfigureAwait(false);
     }
 }
