@@ -13,9 +13,6 @@ public static class Program
     // TODO Move to a configuration file
     private static readonly string[] _cultures = ["en-US", "fr-FR"];
 
-    // TODO Move to a configuration file
-    private static readonly string[] _uiCultures = ["en-US", "fr-FR"];
-
     /// <summary>
     /// The entry point of the application.
     /// </summary>
@@ -32,7 +29,7 @@ public static class Program
         _ = app.UseHexalithWebApplication<App>();
         _ = app.UseRequestLocalization(new RequestLocalizationOptions()
             .AddSupportedCultures(_cultures)
-            .AddSupportedUICultures(_uiCultures));
+            .AddSupportedUICultures(_cultures));
         app.Run();
     }
 }
