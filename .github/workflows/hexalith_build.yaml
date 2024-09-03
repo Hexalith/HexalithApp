@@ -32,6 +32,8 @@ jobs:
     - name: Add Maui Android Workload
       run: |
         dotnet workload install maui-android
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
     - name: Build Version
       run: |
         dotnet tool install --global minver-cli --version 5.0.0
