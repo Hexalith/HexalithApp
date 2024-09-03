@@ -10,7 +10,7 @@
 	<Import Project="src\HexalithApp.Build\Project.Common.props" />
 	<PropertyGroup>
 		<HexalithPath Condition="'$(HexalithPath)' == ''">$(MSBuildThisFileDirectory)Hexalith</HexalithPath>
-		<HexalithVersion Condition="'$(HexalithVersion)' == ''">0.27.*</HexalithVersion>
+		<HexalithVersion Condition="'$(HexalithVersion)' == ''">1.*</HexalithVersion>
 	</PropertyGroup>
 	<PropertyGroup>
 		<Authors>Jérôme Piquot</Authors>
