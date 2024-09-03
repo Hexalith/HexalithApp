@@ -1,0 +1,59 @@
+﻿// <copyright file="HexalithModule.cs" company="Jérôme Piquot SAS Paris France">
+//     Copyright (c) Jérôme Piquot SAS Paris France. All rights reserved.
+//     Licensed under the MIT license.
+//     See LICENSE file in the project root for full license information.
+// </copyright>
+
+namespace HexalithApp.Shared.Modules;
+
+using System.Collections.Generic;
+using System.Reflection;
+
+using Hexalith.Application.Modules.Modules;
+
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+/// <summary>
+/// Represents the HexalithWeb module for customer management.
+/// </summary>
+public class HexalithSharedModule : ISharedApplicationModule
+{
+    /// <inheritdoc/>
+    public IEnumerable<string> Dependencies => [];
+
+    /// <inheritdoc/>
+    public string Description => "Hexalith module";
+
+    /// <inheritdoc/>
+    public string Id => "Hexalith.Shared";
+
+    /// <inheritdoc/>
+    public string Name => "Hexalith shared module";
+
+    /// <inheritdoc/>
+    public int OrderWeight => 0;
+
+    /// <inheritdoc/>
+    public string Path => "hexalith";
+
+    /// <inheritdoc/>
+    public IEnumerable<Assembly> PresentationAssemblies
+        => [GetType().Assembly];
+
+    /// <inheritdoc/>
+    public string Version => "1.0.0";
+
+    /// <summary>
+    /// Adds services to the service collection.
+    /// </summary>
+    /// <param name="services">The service collection.</param>
+    /// <param name="configuration">The configuration.</param>
+    public static void AddServices(IServiceCollection services, IConfiguration configuration)
+        => _ = services.AddSingleton<HexalithClientRouteProvider>();
+
+    /// <inheritdoc/>
+    public void UseModule(object builder)
+    {
+    }
+}

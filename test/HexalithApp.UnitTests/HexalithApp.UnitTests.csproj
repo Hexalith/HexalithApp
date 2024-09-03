@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="..\..\.editorconfig" Link=".editorconfig" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\HexalithApp.Client\HexalithApp.Client.csproj" />
+	  <ProjectReference Include="..\..\src\HexalithApp.Server\HexalithApp.Server.csproj" />
+	  <ProjectReference Include="..\..\src\HexalithApp.Shared\HexalithApp.Shared.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

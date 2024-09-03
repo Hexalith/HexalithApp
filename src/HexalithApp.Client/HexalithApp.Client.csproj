@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+	<Import Project="../../Hexalith.Modules.Client.props" />
+	<PropertyGroup>
+		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<NoDefaultLaunchSettingsFile>true</NoDefaultLaunchSettingsFile>
+		<StaticWebAssetProjectMode>Default</StaticWebAssetProjectMode>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="$(AspNetCorePackagesVersion)" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="$(AspNetCorePackagesVersion)" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
+		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.ClientAppOnWasm\Hexalith.Infrastructure.ClientAppOnWasm.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(UseProjectReference)' != 'true'">
+		<PackageReference Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="$(HexalithVersion)" />
+	</ItemGroup>
+</Project>
