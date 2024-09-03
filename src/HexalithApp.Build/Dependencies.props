@@ -8,11 +8,11 @@
 		<MicrosoftNETTestSdkVersion>17.9.0</MicrosoftNETTestSdkVersion>
 		<MinverVersion>5.0.0</MinverVersion>
 		<MoqContribHttpClientVersion>1.4.0</MoqContribHttpClientVersion>
-		<MoqVersion>4.20.70</MoqVersion>
+		<MoqVersion>4.20.71</MoqVersion>
 		<StyleCopAnalyzersVersion>1.2.0-beta.556</StyleCopAnalyzersVersion>
-		<SwaggerVersion>6.7.0</SwaggerVersion>
+		<SwaggerVersion>6.7.3</SwaggerVersion>
 		<XUnitRunnerVisualStudioVersion>2.8.0</XUnitRunnerVisualStudioVersion>
-		<XUnitVersion>2.8.0</XUnitVersion>
-		<MicrosoftVisualStudioThreadingAnalyzersVersion>17.10.48</MicrosoftVisualStudioThreadingAnalyzersVersion>
+		<XUnitVersion>2.9.0</XUnitVersion>
+		<MicrosoftVisualStudioThreadingAnalyzersVersion>17.11.20</MicrosoftVisualStudioThreadingAnalyzersVersion>
 	</PropertyGroup>
 </Project>

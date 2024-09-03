@@ -1,5 +1,5 @@
-﻿// <copyright file="HexalithModule.cs" company="Jérôme Piquot SAS Paris France">
-//     Copyright (c) Jérôme Piquot SAS Paris France. All rights reserved.
+﻿// <copyright file="HexalithModule.cs" company="Jérôme Piquot">
+//     Copyright (c) Jérôme Piquot. All rights reserved.
 //     Licensed under the MIT license.
 //     See LICENSE file in the project root for full license information.
 // </copyright>
@@ -55,5 +55,6 @@ public class HexalithSharedModule : ISharedApplicationModule
     /// <inheritdoc/>
     public void UseModule(object builder)
     {
+        // Method intentionally left empty.
     }
 }

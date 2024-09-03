@@ -27,7 +27,7 @@
         <ApplicationTitle>Hexalith</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.Jérôme Piquot.hexalith.storeapp</ApplicationId>
+        <ApplicationId>com.hexalith.storeapp</ApplicationId>
 
         <!-- Versions -->
         <!--<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>

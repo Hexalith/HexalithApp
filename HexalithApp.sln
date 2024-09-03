@@ -102,8 +102,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Infrastructure.Ema
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Infrastructure.Serialization", "Hexalith\src\Core\Infrastructure\Hexalith.Infrastructure.Serialization\Hexalith.Infrastructure.Serialization.csproj", "{B28C080C-6197-46C9-9146-770AC5B246D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Infrastructure.TeamsBot", "Hexalith\src\Core\Infrastructure\Hexalith.Infrastructure.TeamsBot\Hexalith.Infrastructure.TeamsBot.csproj", "{1BB27B97-39F9-4B77-9FEF-D2C1AEC43943}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Infrastructure.WebApis", "Hexalith\src\Core\Infrastructure\Hexalith.Infrastructure.WebApis\Hexalith.Infrastructure.WebApis.csproj", "{0D6A01CA-B51B-453D-9F6F-78185BD43213}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Infrastructure.WebApis.Abstractions", "Hexalith\src\Core\Infrastructure\Hexalith.Infrastructure.WebApis.Abstractions\Hexalith.Infrastructure.WebApis.Abstractions.csproj", "{F146B932-B99F-4604-B824-CBEFBF6E2CF5}"
@@ -260,10 +258,6 @@ Global
 		{B28C080C-6197-46C9-9146-770AC5B246D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B28C080C-6197-46C9-9146-770AC5B246D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B28C080C-6197-46C9-9146-770AC5B246D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1BB27B97-39F9-4B77-9FEF-D2C1AEC43943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BB27B97-39F9-4B77-9FEF-D2C1AEC43943}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BB27B97-39F9-4B77-9FEF-D2C1AEC43943}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BB27B97-39F9-4B77-9FEF-D2C1AEC43943}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D6A01CA-B51B-453D-9F6F-78185BD43213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0D6A01CA-B51B-453D-9F6F-78185BD43213}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D6A01CA-B51B-453D-9F6F-78185BD43213}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -350,7 +344,6 @@ Global
 		{6A6E7A2F-6DDE-4F28-8481-EE0437880D3F} = {087A43EE-0CCE-4173-8559-0F38C31A7F96}
 		{02847BE2-4837-4A4A-9E57-5406B7632780} = {087A43EE-0CCE-4173-8559-0F38C31A7F96}
 		{B28C080C-6197-46C9-9146-770AC5B246D7} = {087A43EE-0CCE-4173-8559-0F38C31A7F96}
-		{1BB27B97-39F9-4B77-9FEF-D2C1AEC43943} = {087A43EE-0CCE-4173-8559-0F38C31A7F96}
 		{0D6A01CA-B51B-453D-9F6F-78185BD43213} = {087A43EE-0CCE-4173-8559-0F38C31A7F96}
 		{F146B932-B99F-4604-B824-CBEFBF6E2CF5} = {087A43EE-0CCE-4173-8559-0F38C31A7F96}
 		{526E8257-3214-4F34-A3F0-2C2477946A58} = {087A43EE-0CCE-4173-8559-0F38C31A7F96}
