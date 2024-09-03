@@ -1,4 +1,4 @@
-name: Hexalith Parties Build
+name: Hexalith Application Build
 on:
   push:
     paths-ignore:
@@ -43,10 +43,10 @@ jobs:
       run: |
     - name: Build
       run: |
-        dotnet build './src/HexalithApp.Client/Hexalith.Client.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/HexalithApp.Server/Hexalith.Server.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/HexalithApp.Shared/Hexalith.Shared.csproj' --configuration Release -p:Version=${{ env.VERSION }}
-        dotnet build './src/HexalithApp.StoreApp/Hexalith.StoreApp.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/HexalithApp.Client/HexalithApp.Client.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/HexalithApp.Server/HexalithApp.Server.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/HexalithApp.Shared/HexalithApp.Shared.csproj' --configuration Release -p:Version=${{ env.VERSION }}
+        dotnet build './src/HexalithApp.StoreApp/HexalithApp.StoreApp.csproj' --configuration Release -p:Version=${{ env.VERSION }}
     - name: Unit Tests
       run: |
         dotnet test -c Release --no-restore --no-build ./test/HexalithApp.UnitTests/HexalithApp.UnitTests.csproj
