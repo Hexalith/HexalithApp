@@ -32,12 +32,12 @@ jobs:
     - name: Add Android Workload
       run: |
         dotnet workload install android
-    - name: Add Ios Workload
-      run: |
-        dotnet workload install ios
-    - name: Add Mac Catalyst Workload
-      run: |
-        dotnet workload install maccatalyst
+    # - name: Add Ios Workload
+    #   run: |
+    #     dotnet workload install ios
+    # - name: Add Mac Catalyst Workload
+    #   run: |
+    #     dotnet workload install maccatalyst
     - name: Add Maui Workload
       run: |
         dotnet workload install maui
