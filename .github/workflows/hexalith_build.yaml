@@ -38,9 +38,9 @@ jobs:
     # - name: Add Mac Catalyst Workload
     #   run: |
     #     dotnet workload install maccatalyst
-    - name: Add Maui Workload
+    - name: Add Maui Android Workload
       run: |
-        dotnet workload install maui
+        dotnet workload install maui-android
     - name: Build Version
       run: |
         dotnet tool install --global minver-cli --version 5.0.0
