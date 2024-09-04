@@ -3,7 +3,7 @@ Hexalith web and mobile application
 
 ## Build status
 
-[![Build status](https://github.com/Hexalith/HexalithApp/actions/workflows/hexalith_build.yml/badge.svg)](https://github.com/Hexalith/HexalithApp/actions/workflows/hexalith_build.yaml)
+[![Build status](https://github.com/Hexalith/HexalithApp/actions/workflows/hexalith_build.yaml/badge.svg)](https://github.com/Hexalith/HexalithApp/actions/workflows/hexalith_build.yaml)
 [![License: MIT](https://img.shields.io/github/license/hexalith/hexalithapp)](https://github.com/hexalith/hexalithapp/blob/main/LICENSE)
 [![Discord](https://img.shields.io/discord/1063152441819942922?label=Discord&logo=discord&logoColor=white&color=d82679)](https://discordapp.com/channels/1102166958918610994/1102166958918610997)
 <br/>
