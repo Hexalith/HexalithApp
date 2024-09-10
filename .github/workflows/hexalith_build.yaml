@@ -43,7 +43,7 @@ jobs:
         dotnet workload install maui-android
     - name: Build Version
       run: |
-        dotnet tool install --global minver-cli --version 5.0.0
+        dotnet tool install --global minver-cli --version 6.0.0
         version=$(minver -t v -v e -d preview)
         echo "MINVERVERSIONOVERRIDE=$version" >> $GITHUB_ENV
         echo "VERSION=$version" >> $GITHUB_ENV
