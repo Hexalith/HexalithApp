@@ -23,7 +23,7 @@ public static class Program
             HexalithApplication.Server.Name,
             HexalithApplication.Server.Id,
             "1.0.0",
-            registerActors: _ => { },
+            registerActors: HexalithApplication.Server.RegisterActors,
             args);
         WebApplication app = builder.Build();
         _ = app.UseHexalithWebApplication<App>();
