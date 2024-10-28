@@ -41,9 +41,6 @@
 		<PackageReference Include="Hexalith.Infrastructure.ClientAppOnServer" Version="$(HexalithVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="$(SwaggerVersion)" />
-		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="$(SwaggerVersion)" />
-		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="$(AspNetCorePackagesVersion)" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCorePackagesVersion)" />
     <PackageReference Include="System.Text.Json" Version="$(MicrosoftExtensionsPackagesVersion)" />
   </ItemGroup>
