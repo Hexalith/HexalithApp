@@ -2,12 +2,14 @@
 @using Hexalith.UI.Components
 @using Hexalith.UI.Components.FluentUITheme.Layouts
 @inject IServerApplication Application
-<Router AppAssembly="typeof(HexalithApp.Server.Program).Assembly" AdditionalAssemblies="Application.Client.PresentationAssemblies">
-    <Found Context="routeData">
-        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
-            <NotAuthorized>
-                <RedirectToLogin />
-            </NotAuthorized>
-        </AuthorizeRouteView>
-    </Found>
-</Router>
+<SessionStateProvider>
+	<Router AppAssembly="typeof(HexalithApp.Server.Program).Assembly" AdditionalAssemblies="Application.Client.PresentationAssemblies">
+		<Found Context="routeData">
+			<AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
+				<NotAuthorized>
+					<RedirectToLogin />
+				</NotAuthorized>
+			</AuthorizeRouteView>
+		</Found>
+	</Router>
+</SessionStateProvider>

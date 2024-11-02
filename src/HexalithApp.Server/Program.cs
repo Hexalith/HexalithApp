@@ -21,7 +21,7 @@ public static class Program
     {
         WebApplicationBuilder builder = ServerSideClientAppHelper.CreateServerSideClientApplication(
             HexalithApplication.Server.Name,
-            HexalithApplication.Server.Id,
+            HexalithApplication.Server.SessionCookieName,
             "1.0.0",
             registerActors: HexalithApplication.Server.RegisterActors,
             args);

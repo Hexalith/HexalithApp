@@ -41,9 +41,10 @@
 		<PackageReference Include="Hexalith.Infrastructure.ClientAppOnServer" Version="$(HexalithVersion)" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="$(AspNetCorePackagesVersion)" />
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCorePackagesVersion)" />
-    <PackageReference Include="System.Text.Json" Version="$(MicrosoftExtensionsPackagesVersion)" />
-  </ItemGroup>
+		<PackageReference Include="System.Text.Json" Version="$(MicrosoftExtensionsPackagesVersion)" />
+	</ItemGroup>
 	<ItemGroup>
 		<Content Update="wwwroot\app.css">
 			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
