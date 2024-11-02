@@ -128,6 +128,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexalith.Application.Module
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexalith.PolymorphicSerialization", "Hexalith\src\Core\Common\Hexalith.PolymorphicSerialization\Hexalith.PolymorphicSerialization.csproj", "{4224E158-B15B-4168-8DDE-3DDF219958C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexalith.Application.Sessions.Abstractions", "Hexalith\src\Core\Application\Hexalith.Application.Sessions.Abstractions\Hexalith.Application.Sessions.Abstractions.csproj", "{5CDF5362-C0FF-45B5-A25B-0F4C4CE41DA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -308,6 +310,10 @@ Global
 		{4224E158-B15B-4168-8DDE-3DDF219958C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4224E158-B15B-4168-8DDE-3DDF219958C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4224E158-B15B-4168-8DDE-3DDF219958C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CDF5362-C0FF-45B5-A25B-0F4C4CE41DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CDF5362-C0FF-45B5-A25B-0F4C4CE41DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CDF5362-C0FF-45B5-A25B-0F4C4CE41DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CDF5362-C0FF-45B5-A25B-0F4C4CE41DA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -362,6 +368,7 @@ Global
 		{2CDD4A55-C7C2-452F-B5F5-37B60D9830F5} = {9864980A-B470-4DB0-B8ED-040B0638CD42}
 		{14DD0870-F0D0-464F-9832-58248261E1AB} = {9864980A-B470-4DB0-B8ED-040B0638CD42}
 		{4224E158-B15B-4168-8DDE-3DDF219958C8} = {7E8EAC77-6A98-49C2-9710-316EA69B3260}
+		{5CDF5362-C0FF-45B5-A25B-0F4C4CE41DA4} = {9864980A-B470-4DB0-B8ED-040B0638CD42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C98EBA45-B46B-42EF-B848-3A62BCAD721B}
