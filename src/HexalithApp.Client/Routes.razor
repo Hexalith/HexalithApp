@@ -1,0 +1,13 @@
+﻿@using Hexalith.Application.Modules
+@using Hexalith.UI.Components
+@using Hexalith.UI.Components.FluentUITheme.Layouts
+@inject IServerApplication Application
+<Router AppAssembly="typeof(App).Assembly" AdditionalAssemblies="Application.Client.PresentationAssemblies">
+	<Found Context="routeData">
+		<AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
+			<NotAuthorized>
+				<RedirectToLogin />
+			</NotAuthorized>
+		</AuthorizeRouteView>
+	</Found>
+</Router>
