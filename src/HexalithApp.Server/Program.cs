@@ -3,6 +3,8 @@ namespace HexalithApp.Server;
 using Hexalith.Application.Modules.Applications;
 using Hexalith.Infrastructure.ClientAppOnServer.Helpers;
 
+using HexalithApp.Server.Components.Pages;
+
 /// <summary>
 /// The entry point of the application.
 /// </summary>
@@ -24,7 +26,7 @@ public static class Program
             registerActors: HexalithApplication.Server.RegisterActors,
             args);
         WebApplication app = builder.Build();
-        _ = app.UseHexalithWebApplication<HexalithApp.Client.App>();
+        _ = app.UseHexalithWebApplication<App>();
         _ = app.UseRequestLocalization(new RequestLocalizationOptions()
             .AddSupportedCultures(_cultures)
             .AddSupportedUICultures(_cultures));
