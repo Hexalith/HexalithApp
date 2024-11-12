@@ -1,9 +1,9 @@
-namespace HexalithApp.Server;
+namespace HexalithApp.ApiServer;
 
 using Hexalith.Application.Modules.Applications;
-using Hexalith.Infrastructure.ClientAppOnServer.Helpers;
+using Hexalith.Infrastructure.WebApis.Helpers;
 
-using HexalithApp.Server.Components.Pages;
+using HexalithApp.ApiServer.Modules.Controllers;
 
 /// <summary>
 /// The entry point of the application.
@@ -19,14 +19,13 @@ public static class Program
     /// <param name="args">The arguments.</param>
     public static void Main(string[] args)
     {
-        WebApplicationBuilder builder = ServerSideClientAppHelper.CreateServerSideClientApplication(
+        WebApplicationBuilder builder = HexalithWebApi.CreateApplication(
             HexalithApplication.Server.Name,
-            HexalithApplication.Server.SessionCookieName,
             "1.0.0",
             registerActors: HexalithApplication.Server.RegisterActors,
             args);
         WebApplication app = builder.Build();
-        _ = app.UseHexalithWebApplication<App>();
+        _ = app.UseHexalith<ModuleManagementController>(HexalithApplication.Server.Name);
         _ = app.UseRequestLocalization(new RequestLocalizationOptions()
             .AddSupportedCultures(_cultures)
             .AddSupportedUICultures(_cultures));

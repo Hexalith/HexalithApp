@@ -1,9 +1,9 @@
-namespace HexalithApp.Server;
+namespace HexalithApp.WebServer;
 
 using Hexalith.Application.Modules.Applications;
 using Hexalith.Infrastructure.ClientAppOnServer.Helpers;
 
-using HexalithApp.Server.Components.Pages;
+using HexalithApp.WebServer.Components.Pages;
 
 /// <summary>
 /// The entry point of the application.

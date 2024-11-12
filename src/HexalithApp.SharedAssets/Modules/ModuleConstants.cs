@@ -1,4 +1,4 @@
-﻿namespace HexalithApp.Shared.Modules;
+﻿namespace HexalithApp.SharedAssets.Modules;
 
 /// <summary>
 /// Constants related to module management.

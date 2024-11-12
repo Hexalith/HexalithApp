@@ -11,10 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{ABF08610
 		src\HexalithApp.Build\Dependencies.props = src\HexalithApp.Build\Dependencies.props
 		Directory.Build.props = Directory.Build.props
 		Hexalith.Modules.ApiServer.props = Hexalith.Modules.ApiServer.props
-		Hexalith.Modules.StoreApp.props = Hexalith.Modules.StoreApp.props
 		Hexalith.Modules.SharedAssets.props = Hexalith.Modules.SharedAssets.props
-		Hexalith.Modules.WebServer.props = Hexalith.Modules.WebServer.props
+		Hexalith.Modules.StoreApp.props = Hexalith.Modules.StoreApp.props
 		Hexalith.Modules.WebApp.props = Hexalith.Modules.WebApp.props
+		Hexalith.Modules.WebServer.props = Hexalith.Modules.WebServer.props
 		.github\workflows\hexalith_build.yaml = .github\workflows\hexalith_build.yaml
 		LICENSE = LICENSE
 		src\HexalithApp.Build\Project.Common.props = src\HexalithApp.Build\Project.Common.props
@@ -132,6 +132,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.WebApp", "src\HexalithApp.WebApp\HexalithApp.WebApp.csproj", "{84FB74A1-7074-409C-B3AD-FA43597C6A42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.WebServer", "src\HexalithApp.WebServer\HexalithApp.WebServer.csproj", "{F282E9BA-5844-4874-A90F-EA7DBECF20B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexalith.Infrastructure.DaprRuntime.Partitions", "Hexalith\src\Core\Infrastructure\Hexalith.Infrastructure.DaprRuntime.Partitions\Hexalith.Infrastructure.DaprRuntime.Partitions.csproj", "{7C59A5F6-98CC-47F6-B168-8780DD913B9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexalith.Infrastructure.DaprRuntime.Sessions", "Hexalith\src\Core\Infrastructure\Hexalith.Infrastructure.DaprRuntime.Sessions\Hexalith.Infrastructure.DaprRuntime.Sessions.csproj", "{533E2FD8-AAC4-46EA-9D94-FFFE2646D846}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexalith.Application.Partitions.Abstractions", "Hexalith\src\Core\Application\Hexalith.Application.Partitions.Abstractions\Hexalith.Application.Partitions.Abstractions.csproj", "{C660242B-C465-4177-99D1-F4CDCE5E3CAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -321,6 +327,18 @@ Global
 		{F282E9BA-5844-4874-A90F-EA7DBECF20B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F282E9BA-5844-4874-A90F-EA7DBECF20B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F282E9BA-5844-4874-A90F-EA7DBECF20B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C59A5F6-98CC-47F6-B168-8780DD913B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C59A5F6-98CC-47F6-B168-8780DD913B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C59A5F6-98CC-47F6-B168-8780DD913B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C59A5F6-98CC-47F6-B168-8780DD913B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{533E2FD8-AAC4-46EA-9D94-FFFE2646D846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533E2FD8-AAC4-46EA-9D94-FFFE2646D846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533E2FD8-AAC4-46EA-9D94-FFFE2646D846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533E2FD8-AAC4-46EA-9D94-FFFE2646D846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C660242B-C465-4177-99D1-F4CDCE5E3CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C660242B-C465-4177-99D1-F4CDCE5E3CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C660242B-C465-4177-99D1-F4CDCE5E3CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C660242B-C465-4177-99D1-F4CDCE5E3CAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -377,6 +395,9 @@ Global
 		{1835AB67-2DFD-4C43-A9BC-AAA6482B0549} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
 		{84FB74A1-7074-409C-B3AD-FA43597C6A42} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
 		{F282E9BA-5844-4874-A90F-EA7DBECF20B5} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
+		{7C59A5F6-98CC-47F6-B168-8780DD913B9C} = {087A43EE-0CCE-4173-8559-0F38C31A7F96}
+		{533E2FD8-AAC4-46EA-9D94-FFFE2646D846} = {087A43EE-0CCE-4173-8559-0F38C31A7F96}
+		{C660242B-C465-4177-99D1-F4CDCE5E3CAD} = {9864980A-B470-4DB0-B8ED-040B0638CD42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C98EBA45-B46B-42EF-B848-3A62BCAD721B}

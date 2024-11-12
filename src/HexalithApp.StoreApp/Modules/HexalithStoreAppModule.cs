@@ -11,7 +11,7 @@ using System.Reflection;
 
 using Hexalith.Application.Modules.Modules;
 
-using HexalithApp.Shared.Modules;
+using HexalithApp.SharedAssets.Modules;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -50,5 +50,6 @@ public class HexalithStoreAppModule : IStoreAppApplicationModule
     public static void AddServices(IServiceCollection services, IConfiguration configuration) =>
         _ = services.AddSingleton<HexalithClientRouteProvider>();
 
+    /// <inheritdoc/>
     public void UseModule(object builder) => throw new NotImplementedException();
 }

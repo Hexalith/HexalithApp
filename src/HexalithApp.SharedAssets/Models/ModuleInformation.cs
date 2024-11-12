@@ -1,4 +1,4 @@
-﻿namespace HexalithApp.Shared.Models;
+﻿namespace HexalithApp.SharedAssets.Models;
 
 using System.Runtime.Serialization;
 

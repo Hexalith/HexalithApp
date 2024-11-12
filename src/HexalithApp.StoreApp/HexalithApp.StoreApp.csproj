@@ -1,11 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
     <Import Project="../../Hexalith.Modules.StoreApp.props" />
-
     <PropertyGroup>
         <TargetFrameworks>net8.0-android</TargetFrameworks>
-		<TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0;</TargetFrameworks>
-		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+    <TargetFrameworks Condition="!$([MSBuild]::IsOSPlatform('linux'))">$(TargetFrameworks);net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0;</TargetFrameworks>
+    <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
         <!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
 
         <!-- Note for MacCatalyst:
@@ -62,19 +61,19 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="$(MicrosoftExtensionsPackagesVersion)" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(MicrosoftExtensionsPackagesVersion)" />
     </ItemGroup>
 
-	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(BuildingByReSharper)' == 'true'">
-		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.ClientApp\Hexalith.Infrastructure.ClientApp.csproj" />
-	</ItemGroup>
-	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
-		<PackageReference Include="Hexalith.Infrastructure.ClientApp" Version="$(HexalithVersion)" />
-	</ItemGroup>
-	<ItemGroup>
-      <ProjectReference Include="..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
-    </ItemGroup>
-
+  <ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(BuildingByReSharper)' == 'true'">
+    <ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.ClientApp\Hexalith.Infrastructure.ClientApp.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
+    <PackageReference Include="Hexalith.Infrastructure.ClientApp" Version="$(HexalithVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+      <ProjectReference Include="..\HexalithApp.SharedAssets\HexalithApp.SharedAssets.csproj" />
+  </ItemGroup>
 </Project>

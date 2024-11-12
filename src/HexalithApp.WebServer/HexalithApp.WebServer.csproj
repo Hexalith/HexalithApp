@@ -7,7 +7,7 @@
 		<ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:$(DNVersion).0</ContainerBaseImage>
 		<ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
 		<EnableSdkContainerSupport>true</EnableSdkContainerSupport>
-		<UserSecretsId>$(HexalithAppName)-server</UserSecretsId>
+		<UserSecretsId>$(HexalithAppName)-web</UserSecretsId>
 		<EnableSdkContainerSupport>true</EnableSdkContainerSupport>
 	</PropertyGroup>
 	<ItemGroup>

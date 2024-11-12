@@ -1,10 +1,10 @@
-﻿namespace HexalithApp.Server.Modules.Controllers;
+﻿namespace HexalithApp.WebServer.Modules.Controllers;
 
 using System.ComponentModel.DataAnnotations;
 
-using HexalithApp.Shared.Models;
-using HexalithApp.Shared.Modules;
-using HexalithApp.Shared.Services;
+using HexalithApp.SharedAssets.Models;
+using HexalithApp.SharedAssets.Modules;
+using HexalithApp.SharedAssets.Services;
 
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
