@@ -3,8 +3,4 @@
     <HexalithModulesWebServerProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.Modules.WebServer.props', '$(MSBuildThisFileDirectory)..'))</HexalithModulesWebServerProps>
   </PropertyGroup>
   <Import Project="$(HexalithModulesWebServerProps)" Condition=" '$(HexalithModulesWebServerProps)' != '' " />
-  <PropertyGroup>
-  </PropertyGroup>
-  <ItemGroup>
-  </ItemGroup>
 </Project>

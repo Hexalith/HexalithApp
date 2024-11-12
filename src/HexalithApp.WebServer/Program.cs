@@ -23,7 +23,6 @@ public static class Program
             HexalithApplication.Server.Name,
             HexalithApplication.Server.SessionCookieName,
             "1.0.0",
-            registerActors: HexalithApplication.Server.RegisterActors,
             args);
         WebApplication app = builder.Build();
         _ = app.UseHexalithWebApplication<App>();

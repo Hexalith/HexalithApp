@@ -2,7 +2,7 @@
 	<Import Project="../../Hexalith.Modules.SharedAssets.props" />
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>$(CommonTargetFrameworks)</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>

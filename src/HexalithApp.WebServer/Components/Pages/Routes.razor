@@ -1,7 +1,7 @@
 ﻿@using Hexalith.Application.Modules
 @using Hexalith.UI.Components
 @using Hexalith.UI.Components.FluentUITheme.Layouts
-@inject IServerApplication Application
+@inject IWebServerApplication Application
 <Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="HexalithApplication.Client.PresentationAssemblies">
 	<Found Context="routeData">
 		<AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
