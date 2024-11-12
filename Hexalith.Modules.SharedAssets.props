@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <HexalithModulesSharedAssetsProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.Modules.SharedAssets.props', '$(MSBuildThisFileDirectory)..'))</HexalithModulesSharedAssetsProps>
+  </PropertyGroup>
+  <Import Project="$(HexalithModulesSharedAssetsProps)" Condition=" '$(HexalithModulesSharedAssetsProps)' != '' " />
+  <PropertyGroup>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

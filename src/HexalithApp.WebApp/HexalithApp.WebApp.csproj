@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
-	<Import Project="../../Hexalith.Modules.Client.props" />
+	<Import Project="../../Hexalith.Modules.WebApp.props" />
 	<PropertyGroup>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
 		<TargetFramework>net8.0</TargetFramework>
@@ -14,7 +14,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="$(AspNetCorePackagesVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\HexalithApp.Shared\HexalithApp.Shared.csproj" />
+	  <ProjectReference Include="..\HexalithApp.SharedAssets\HexalithApp.SharedAssets.csproj" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
 		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.ClientAppOnWasm\Hexalith.Infrastructure.ClientAppOnWasm.csproj" />

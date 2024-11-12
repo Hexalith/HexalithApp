@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
-	<Import Project="../../Hexalith.Modules.Shared.props" />
+	<Import Project="../../Hexalith.Modules.SharedAssets.props" />
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>

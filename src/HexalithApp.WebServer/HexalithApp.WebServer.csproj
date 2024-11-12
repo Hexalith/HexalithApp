@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-	<Import Project="../../Hexalith.Modules.Server.props" />
+	<Import Project="../../Hexalith.Modules.WebServer.props" />
 	<PropertyGroup>
 		<ContainerRepository>$(HexalithAppName)-server</ContainerRepository>
 		<TargetFramework>$(CommonTargetFrameworks)</TargetFramework>
@@ -32,7 +32,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\HexalithApp.Client\HexalithApp.Client.csproj" />
+		<ProjectReference Include="..\HexalithApp.WebApp\HexalithApp.WebApp.csproj" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
 		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.ClientAppOnServer\Hexalith.Infrastructure.ClientAppOnServer.csproj" />
