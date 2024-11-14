@@ -8,14 +8,6 @@
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 	</PropertyGroup>
 
-
-	<ItemGroup>
-		<SupportedPlatform Include="browser" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="$(AspNetCorePackagesVersion)" />
-	</ItemGroup>
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
 		<ProjectReference Include="$(HexalithPath)\src\Core\Application\Hexalith.Application.Modules\Hexalith.Application.Modules.csproj" />
 		<ProjectReference Include="$(HexalithPath)\src\Core\UI\Hexalith.UI.Components\Hexalith.UI.Components.csproj" />
@@ -24,5 +16,9 @@
 		<PackageReference Include="Hexalith.Application.Modules" Version="$(HexalithVersion)" />
 		<PackageReference Include="Hexalith.UI.Components" Version="$(HexalithVersion)" />
 	</ItemGroup>
+  	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
+
 
 </Project>
