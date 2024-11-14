@@ -20,12 +20,12 @@ public static class Program
     public static void Main(string[] args)
     {
         WebApplicationBuilder builder = HexalithWebApi.CreateApplication(
-            HexalithApplication.Server.Name,
+            HexalithApplication.ApiServerApplication.Name,
             "1.0.0",
-            registerActors: HexalithApplication.Server.RegisterActors,
+            registerActors: HexalithApplication.ApiServerApplication.RegisterActors,
             args);
         WebApplication app = builder.Build();
-        _ = app.UseHexalith<ModuleManagementController>(HexalithApplication.Server.Name);
+        _ = app.UseHexalith<ModuleManagementController>(HexalithApplication.ApiServerApplication.Name);
         _ = app.UseRequestLocalization(new RequestLocalizationOptions()
             .AddSupportedCultures(_cultures)
             .AddSupportedUICultures(_cultures));

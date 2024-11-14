@@ -11,6 +11,12 @@
 		<EnableSdkContainerSupport>true</EnableSdkContainerSupport>
 	</PropertyGroup>
 	<ItemGroup>
+	  <Compile Remove="D:\Hexalith.Documents\src/ApiServerApplication.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Include="..\..\..\src\HexalithDocumentsApiServerApplication.cs" Link="HexalithDocumentsApiServerApplication.cs" />
+	</ItemGroup>
+	<ItemGroup>
 		<ContainerEnvironmentVariable Include="Hexalith__Version" Value="$(Version)" />
 		<ContainerEnvironmentVariable Include="Cosmos__DatabaseName" Value="production" />
 		<ContainerEnvironmentVariable Include="Aspire__Enabled" Value="false" />

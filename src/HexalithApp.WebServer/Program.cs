@@ -20,8 +20,8 @@ public static class Program
     public static void Main(string[] args)
     {
         WebApplicationBuilder builder = ServerSideClientAppHelper.CreateServerSideClientApplication(
-            HexalithApplication.Server.Name,
-            HexalithApplication.Server.SessionCookieName,
+            HexalithApplication.WebServerApplication.Name,
+            HexalithApplication.WebServerApplication.SessionCookieName,
             "1.0.0",
             args);
         WebApplication app = builder.Build();
