@@ -74,6 +74,6 @@
     <PackageReference Include="Hexalith.Infrastructure.ClientApp" Version="$(HexalithVersion)" />
   </ItemGroup>
   <ItemGroup>
-      <ProjectReference Include="..\HexalithApp.SharedAssets\HexalithApp.SharedAssets.csproj" />
+      <ProjectReference Include="..\HexalithApp.SharedUIElements\HexalithApp.SharedUIElements.csproj" />
   </ItemGroup>
 </Project>
