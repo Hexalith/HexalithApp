@@ -4,7 +4,7 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace HexalithApp.SharedAssets.Modules;
+namespace HexalithApp.SharedUIElements.Modules;
 
 using System.Collections.Generic;
 using System.Reflection;
@@ -17,7 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 /// <summary>
 /// Represents the HexalithWeb module for customer management.
 /// </summary>
-public class HexalithSharedModule : ISharedAssetsApplicationModule
+public class HexalithSharedModule : ISharedUIElementsApplicationModule
 {
     /// <inheritdoc/>
     public IEnumerable<string> Dependencies => [];

@@ -4,7 +4,7 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace HexalithApp.SharedAssets.Modules;
+namespace HexalithApp.SharedUIElements.Modules;
 
 using Hexalith.Application.Modules.Routes;
 

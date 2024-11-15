@@ -33,7 +33,7 @@
 		<ContainerPort Include="8080" Type="tcp" />
 	</ItemGroup>
 	<ItemGroup>
-			<ProjectReference Include="..\HexalithApp.SharedAssets\HexalithApp.SharedAssets.csproj" />
+			<ProjectReference Include="..\HexalithApp.SharedUIElements\HexalithApp.SharedUIElements.csproj" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">

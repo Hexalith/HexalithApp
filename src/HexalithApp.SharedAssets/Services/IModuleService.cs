@@ -1,4 +1,4 @@
-﻿namespace HexalithApp.SharedAssets.Services;
+﻿namespace HexalithApp.SharedUIElements.Services;
 
 /// <summary>
 /// Represents an module service.

@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{ABF08610
 		src\HexalithApp.Build\Dependencies.props = src\HexalithApp.Build\Dependencies.props
 		Directory.Build.props = Directory.Build.props
 		Hexalith.Modules.ApiServer.props = Hexalith.Modules.ApiServer.props
-		Hexalith.Modules.SharedAssets.props = Hexalith.Modules.SharedAssets.props
+		Hexalith.Modules.SharedUIElements.props = Hexalith.Modules.SharedUIElements.props
 		Hexalith.Modules.StoreApp.props = Hexalith.Modules.StoreApp.props
 		Hexalith.Modules.WebApp.props = Hexalith.Modules.WebApp.props
 		Hexalith.Modules.WebServer.props = Hexalith.Modules.WebServer.props
@@ -127,7 +127,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexalith.Application.Sessio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.ApiServer", "src\HexalithApp.ApiServer\HexalithApp.ApiServer.csproj", "{AE855428-77B7-43AD-981F-99E1CE01BB7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.SharedAssets", "src\HexalithApp.SharedAssets\HexalithApp.SharedAssets.csproj", "{1835AB67-2DFD-4C43-A9BC-AAA6482B0549}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.SharedUIElements", "src\HexalithApp.SharedUIElements\HexalithApp.SharedUIElements.csproj", "{1835AB67-2DFD-4C43-A9BC-AAA6482B0549}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.WebApp", "src\HexalithApp.WebApp\HexalithApp.WebApp.csproj", "{84FB74A1-7074-409C-B3AD-FA43597C6A42}"
 EndProject

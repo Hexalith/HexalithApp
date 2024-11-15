@@ -43,7 +43,7 @@
 		<PackageReference Include="System.Text.Json" Version="$(MicrosoftExtensionsPackagesVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\HexalithApp.SharedAssets\HexalithApp.SharedAssets.csproj" />
+	  <ProjectReference Include="..\HexalithApp.SharedUIElements\HexalithApp.SharedUIElements.csproj" />
 	  <ProjectReference Include="..\HexalithApp.WebApp\HexalithApp.WebApp.csproj" />
 	</ItemGroup>
 	<ItemGroup>

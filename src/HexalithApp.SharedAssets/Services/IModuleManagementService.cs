@@ -1,6 +1,6 @@
-﻿namespace HexalithApp.SharedAssets.Services;
+﻿namespace HexalithApp.SharedUIElements.Services;
 
-using HexalithApp.SharedAssets.Models;
+using HexalithApp.SharedUIElements.Models;
 
 /// <summary>
 /// Represents the module management service.

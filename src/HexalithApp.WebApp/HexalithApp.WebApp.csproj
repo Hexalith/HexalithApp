@@ -25,6 +25,6 @@
     <PackageReference Include="Hexalith.UI.Components" Version="$(HexalithVersion)" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HexalithApp.SharedAssets\HexalithApp.SharedAssets.csproj" />
+    <ProjectReference Include="..\HexalithApp.SharedUIElements\HexalithApp.SharedUIElements.csproj" />
   </ItemGroup>
 </Project>
