@@ -73,7 +73,4 @@
   <ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
     <PackageReference Include="Hexalith.Infrastructure.ClientApp" Version="$(HexalithVersion)" />
   </ItemGroup>
-  <ItemGroup>
-      <ProjectReference Include="..\HexalithApp.SharedUIElements\HexalithApp.SharedUIElements.csproj" />
-  </ItemGroup>
 </Project>
