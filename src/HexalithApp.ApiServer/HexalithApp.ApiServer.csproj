@@ -32,9 +32,6 @@
 		<ContainerEnvironmentVariable Include="Logging__LogLevel__System" Value="Warning" />
 		<ContainerPort Include="8080" Type="tcp" />
 	</ItemGroup>
-	<ItemGroup>
-			<ProjectReference Include="..\HexalithApp.SharedUIElements\HexalithApp.SharedUIElements.csproj" />
-	</ItemGroup>
 
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
 		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.WebApis\Hexalith.Infrastructure.WebApis.csproj" />

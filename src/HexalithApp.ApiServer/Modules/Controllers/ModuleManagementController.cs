@@ -2,9 +2,9 @@
 
 using System.ComponentModel.DataAnnotations;
 
-using HexalithApp.SharedUIElements.Models;
-using HexalithApp.SharedUIElements.Modules;
-using HexalithApp.SharedUIElements.Services;
+using Hexalith.Application.Modules;
+using Hexalith.Application.Modules.Models;
+using Hexalith.Application.Modules.Services;
 
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;

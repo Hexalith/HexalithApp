@@ -20,10 +20,11 @@ public static class Program
     public static void Main(string[] args)
     {
         WebApplicationBuilder builder = HexalithWebApi.CreateApplication(
-            HexalithApplication.ApiServerApplication.Name,
+            HexalithApplication.ApiServerApplication?.Name ?? throw new InvalidOperationException("No API Server application found."),
             "1.0.0",
             registerActors: HexalithApplication.ApiServerApplication.RegisterActors,
             args);
+        _ = builder.Services.AddSingleton<Hexalith.Application.Modules.HexalithClientRouteProvider>();
         WebApplication app = builder.Build();
         _ = app.UseHexalith<ModuleManagementController>(HexalithApplication.ApiServerApplication.Name);
         _ = app.UseRequestLocalization(new RequestLocalizationOptions()
