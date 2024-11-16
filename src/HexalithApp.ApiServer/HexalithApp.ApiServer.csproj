@@ -34,11 +34,11 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
-		<ProjectReference Include="$(HexalithPath)\src\Core\Application\Hexalith.Application.Modules\Hexalith.Application.Modules.csproj" />
+		<ProjectReference Include="$(HexalithPath)\src\Core\Application\Hexalith.Application.Modules.Abstractions\Hexalith.Application.Modules.Abstractions.csproj" />
 		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.WebApis\Hexalith.Infrastructure.WebApis.csproj" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(UseProjectReference)' != 'true'">
-		<PackageReference Include="Hexalith.Application.Modules" Version="$(HexalithVersion)" />
+		<PackageReference Include="Hexalith.Application.Modules.Abstractions" Version="$(HexalithVersion)" />
 		<PackageReference Include="Hexalith.Infrastructure.WebApis" Version="$(HexalithVersion)" />
 	</ItemGroup>
 </Project>
