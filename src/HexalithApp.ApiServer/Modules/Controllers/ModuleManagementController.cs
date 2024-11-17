@@ -3,7 +3,9 @@
 using System.ComponentModel.DataAnnotations;
 
 using Hexalith.Application.Modules;
+using Hexalith.Application.Modules.Applications;
 using Hexalith.Application.Modules.Models;
+using Hexalith.Application.Modules.Modules;
 using Hexalith.Application.Modules.Services;
 
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -20,29 +22,19 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 [ApiController]
 public class ModuleManagementController : ControllerBase
 {
-    private readonly string _applicationModuleName;
-    private readonly Dictionary<string, IModuleService> _modules;
+    private readonly IApplication _application;
+    private readonly Dictionary<string, IApplicationModule> _modules;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ModuleManagementController"/> class.
     /// </summary>
     /// <param name="modules">The collection of module services.</param>
-    public ModuleManagementController(IEnumerable<IModuleService> modules)
+    /// <param name="application">The application instance.</param>
+    public ModuleManagementController(IEnumerable<IApplicationModule> modules, IApplication application)
     {
         ArgumentNullException.ThrowIfNull(modules);
-        _modules = modules.ToDictionary(m => m.Name, p => p);
-        List<IModuleService> applications = _modules.Values.Where(m => m.IsApplicationModule).ToList();
-        if (applications.Count < 1)
-        {
-            throw new InvalidOperationException("No application module found.");
-        }
-
-        if (applications.Count > 1)
-        {
-            throw new InvalidOperationException("More than one application module found: " + string.Join("; ", applications.Select(p => p.Name)));
-        }
-
-        _applicationModuleName = applications[0].Name;
+        _modules = modules.ToDictionary(m => m.Id, p => p);
+        _application = application;
     }
 
     /// <summary>
@@ -52,26 +44,30 @@ public class ModuleManagementController : ControllerBase
     [HttpGet]
     [Route(ModuleConstants.ApplicationInformationApi)]
     public Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>> GetApplicationInformation()
-        => GetModuleInformation(_applicationModuleName);
+        => TypedResults.Ok(new ModuleInformation(
+                _application.Name,
+                _application.Description,
+                _application.Version,
+                true));
 
     /// <summary>
     /// Gets the module information.
     /// </summary>
-    /// <param name="name">The name of the module.</param>
+    /// <param name="id">The ID of the module.</param>
     /// <returns>The module information.</returns>
     [HttpGet]
     [Route(ModuleConstants.ModuleInformationApi)]
-    public Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>> GetModuleInformation([Required] string name)
+    public Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>> GetModuleInformation([Required] string id)
     {
         return !ModelState.IsValid
             ? (Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>>)TypedResults.BadRequest(ModelState)
-            : !_modules.TryGetValue(name, out IModuleService? module)
+            : !_modules.TryGetValue(id, out IApplicationModule? module)
             ? TypedResults.NotFound(
-                $"Module {name} not found. Valid module names are: {string.Join("; ", _modules.Select(p => p.Key))}.")
+                $"Module {id} not found. Valid module names are: {string.Join("; ", _modules.Select(p => p.Key))}.")
             : TypedResults.Ok(new ModuleInformation(
                 module.Name,
                 module.Description,
                 module.Version,
-                module.IsApplicationModule));
+                false));
     }
 }

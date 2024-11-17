@@ -2,7 +2,7 @@
 @using Hexalith.UI.Components
 @using Hexalith.UI.Components.FluentUITheme.Layouts
 @inject IWebServerApplication Application
-<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="HexalithApplication.WebAppApplication.PresentationAssemblies">
+<Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="HexalithApplication.WebAppApplication?.PresentationAssemblies">
 	<Found Context="routeData">
 		<AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
 			<NotAuthorized>

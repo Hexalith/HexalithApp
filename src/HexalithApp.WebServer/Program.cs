@@ -10,9 +10,6 @@ using HexalithApp.WebServer.Components.Pages;
 /// </summary>
 public static class Program
 {
-    // TODO Move to a configuration file
-    private static readonly string[] _cultures = ["en-US", "fr-FR"];
-
     /// <summary>
     /// The entry point of the application.
     /// </summary>
@@ -27,9 +24,6 @@ public static class Program
             args);
         WebApplication app = builder.Build();
         _ = app.UseHexalithWebApplication<App>();
-        _ = app.UseRequestLocalization(new RequestLocalizationOptions()
-            .AddSupportedCultures(_cultures)
-            .AddSupportedUICultures(_cultures));
         app.Run();
     }
 }
