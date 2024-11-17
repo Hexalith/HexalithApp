@@ -19,9 +19,10 @@ public static class Program
     /// <param name="args">The arguments.</param>
     public static void Main(string[] args)
     {
+        IWebServerApplication application = HexalithApplication.WebServerApplication ?? throw new InvalidOperationException("WebServerApplication is not defined");
         WebApplicationBuilder builder = ServerSideClientAppHelper.CreateServerSideClientApplication(
-            HexalithApplication.WebServerApplication.Name,
-            HexalithApplication.WebServerApplication.SessionCookieName,
+            application.Name,
+            application.SessionCookieName,
             "1.0.0",
             args);
         WebApplication app = builder.Build();
