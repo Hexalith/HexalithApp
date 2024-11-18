@@ -14,7 +14,8 @@ public static class Program
     /// The entry point of the application.
     /// </summary>
     /// <param name="args">The arguments.</param>
-    public static void Main(string[] args)
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    public static async Task Main(string[] args)
     {
         IWebServerApplication application = HexalithApplication.WebServerApplication ?? throw new InvalidOperationException("WebServerApplication is not defined");
         WebApplicationBuilder builder = ServerSideClientAppHelper.CreateServerSideClientApplication(
@@ -24,6 +25,6 @@ public static class Program
             args);
         WebApplication app = builder.Build();
         _ = app.UseHexalithWebApplication<App>();
-        app.Run();
+        await app.RunAsync().ConfigureAwait(false);
     }
 }

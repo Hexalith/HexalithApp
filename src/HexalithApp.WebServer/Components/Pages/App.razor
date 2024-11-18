@@ -3,10 +3,6 @@
 @using Hexalith.Application.Modules.Applications
 @using Hexalith.Application.Modules.Routes
 
-@inject NavigationManager NavigationManager
-@inject IWebServerApplication Application
-@inject IRouteManager RouteManager
-
 @if (_initialized)
 {
 	<!DOCTYPE html>
@@ -81,10 +77,11 @@
 
 	private void HandleRedirect(Uri url)
 	{
-		if (string.IsNullOrWhiteSpace(url.AbsolutePath) || url.AbsolutePath.Equals("/", StringComparison.OrdinalIgnoreCase))
-		{
-			NavigationManager.NavigateTo(Application.HomePath);
-		}
+
+		// if (string.IsNullOrWhiteSpace(url.AbsolutePath) || url.AbsolutePath.Equals("/", StringComparison.OrdinalIgnoreCase))
+		// {
+		// 	NavigationManager.NavigateTo(Application.HomePath);
+		// }
 		// Get the mapped route for the current path
 		var alias = RouteManager.MapPath(url.AbsolutePath);
 		// get first default alias

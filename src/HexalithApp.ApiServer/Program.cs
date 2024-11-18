@@ -17,7 +17,8 @@ public static class Program
     /// The entry point of the application.
     /// </summary>
     /// <param name="args">The arguments.</param>
-    public static void Main(string[] args)
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+    public static async Task Main(string[] args)
     {
         WebApplicationBuilder builder = HexalithWebApi.CreateApplication(
             HexalithApplication.ApiServerApplication?.Name ?? throw new InvalidOperationException("No API Server application found."),
@@ -30,6 +31,6 @@ public static class Program
         _ = app.UseRequestLocalization(new RequestLocalizationOptions()
             .AddSupportedCultures(_cultures)
             .AddSupportedUICultures(_cultures));
-        app.Run();
+        await app.RunAsync().ConfigureAwait(false);
     }
 }
