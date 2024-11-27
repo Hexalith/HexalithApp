@@ -4,8 +4,7 @@
     <FluentAssertionsVersion>6.12.0</FluentAssertionsVersion>
     <GitHubActionsTestLoggerVersion>2.3.3</GitHubActionsTestLoggerVersion>
     <MicrosoftCodeAnalysisCSharpVersion>4.10.0</MicrosoftCodeAnalysisCSharpVersion>
-    <MicrosoftFluentUIVersion>4.*</MicrosoftFluentUIVersion>
-    <MicrosoftVisualStudioThreadingAnalyzersVersion>17.12.0</MicrosoftVisualStudioThreadingAnalyzersVersion>
+    <MicrosoftVisualStudioThreadingAnalyzersVersion>17.12.19</MicrosoftVisualStudioThreadingAnalyzersVersion>
     <MinverVersion>5.0.0</MinverVersion>
     <MoqContribHttpClientVersion>1.4.0</MoqContribHttpClientVersion>
     <MoqVersion>4.20.71</MoqVersion>
