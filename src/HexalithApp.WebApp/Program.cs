@@ -4,7 +4,6 @@ using Hexalith.Application.Modules;
 using Hexalith.Infrastructure.ClientApp;
 using Hexalith.Infrastructure.ClientAppOnWasm.Helpers;
 
-using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 /// <summary>
@@ -21,11 +20,12 @@ public static class Program
     {
         WebAssemblyHostBuilder builder = WebAssemblyClientHelper.CreateHexalithWasmClient(args);
         _ = builder.Services
-            .AddSingleton<HexalithClientRouteProvider>()
+            .AddSingleton<HexalithClientRouteProvider>();
+
+        _ = builder.Services
             .AddHttpClient(
             ClientConstants.FrontApiName,
-            client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress))
-                .AddHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
+            client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
 
         _ = builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>()
             .CreateClient(ClientConstants.FrontApiName));
