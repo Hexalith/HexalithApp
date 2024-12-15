@@ -22,11 +22,6 @@ public static class Program
         _ = builder.Services
             .AddSingleton<HexalithClientRouteProvider>();
 
-        _ = builder.Services
-            .AddHttpClient(
-            ClientConstants.FrontApiName,
-            client => client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress));
-
         _ = builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>()
             .CreateClient(ClientConstants.FrontApiName));
 
