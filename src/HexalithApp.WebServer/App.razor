@@ -1,4 +1,6 @@
-﻿@using System.Net
+﻿@inject NavigationManager NavigationManager
+@inject IRouteManager RouteManager
+@using System.Net
 @using Hexalith.Application.Modules
 @using Hexalith.Application.Modules.Applications
 @using Hexalith.Application.Modules.Routes
@@ -16,7 +18,7 @@
         <link rel="stylesheet" href="HexalithApp.WebServer.styles.css" />
         <ImportMap />
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
-        <HeadOutlet />
+        <HeadOutlet/>
         <script type="text/javascript">
             (function (c, l, a, r, i, t, y) {
                 c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -71,19 +73,17 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var url = new Uri(NavigationManager.Uri);
-        HandleRedirect(url);
         _initialized = true;
         await base.OnInitializedAsync();
+        if (NavigationManager is not null)
+        {
+            var url = new Uri(NavigationManager.Uri);
+            HandleRedirect(url);
+        }
     }
 
     private void HandleRedirect(Uri url)
     {
-
-        // if (string.IsNullOrWhiteSpace(url.AbsolutePath) || url.AbsolutePath.Equals("/", StringComparison.OrdinalIgnoreCase))
-        // {
-        // 	NavigationManager.NavigateTo(Application.HomePath);
-        // }
         // Get the mapped route for the current path
         var alias = RouteManager.MapPath(url.AbsolutePath);
         // get first default alias
@@ -94,3 +94,4 @@
         }
     }
 }
+
