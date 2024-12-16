@@ -14,6 +14,11 @@
     <HexalithVersion Condition="'$(HexalithVersion)' == ''">1.*</HexalithVersion>
   </PropertyGroup>
   <PropertyGroup>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
+  </PropertyGroup>
+  <PropertyGroup>
     <Authors>Jérôme Piquot</Authors>
     <Company>Jérôme Piquot</Company>
     <Product>Hexalith Application</Product>
