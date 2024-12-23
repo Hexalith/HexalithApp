@@ -16,10 +16,12 @@
   </ItemGroup>
   <ItemGroup Condition="'$(UseProjectReference)' == 'true'">
     <ProjectReference Include="$(HexalithPath)src\Core\Infrastructure\Hexalith.Infrastructure.ClientAppOnWasm\Hexalith.Infrastructure.ClientAppOnWasm.csproj" />
-    <ProjectReference Include="$(HexalithPath)src\Core\UI\Hexalith.UI.Components\Hexalith.UI.Components.csproj" />
+      <ProjectReference Include="$(HexalithPath)src\Core\UI\Hexalith.UI.Components\Hexalith.UI.Components.csproj" />
+      <ProjectReference Include="$(HexalithPath)src\Core\UI\Hexalith.UI.WebApp\Hexalith.UI.WebApp.csproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(UseProjectReference)' != 'true'">
-    <PackageReference Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="$(HexalithVersion)" />
-    <PackageReference Include="Hexalith.UI.Components" Version="$(HexalithVersion)" />
+      <PackageReference Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="$(HexalithVersion)" />
+      <PackageReference Include="Hexalith.UI.Components" Version="$(HexalithVersion)" />
+      <PackageReference Include="Hexalith.UI.WebApp" Version="$(HexalithVersion)" />
   </ItemGroup>
 </Project>
