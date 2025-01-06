@@ -13,7 +13,6 @@
     <ItemGroup>
         <ContainerEnvironmentVariable Include="Hexalith__Version" Value="$(Version)" />
         <ContainerEnvironmentVariable Include="Cosmos__DatabaseName" Value="production" />
-        <ContainerEnvironmentVariable Include="Aspire__Enabled" Value="false" />
         <ContainerEnvironmentVariable Include="DaprCommandBus__Name" Value="commands" />
         <ContainerEnvironmentVariable Include="DaprEventBus__Name" Value="events" />
         <ContainerEnvironmentVariable Include="DaprNotificationBus__Name" Value="notifications" />
