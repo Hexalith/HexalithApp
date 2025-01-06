@@ -15,7 +15,6 @@
         <ContainerEnvironmentVariable Include="Cosmos__DatabaseName" Value="production" />
         <ContainerEnvironmentVariable Include="DaprCommandBus__Name" Value="commands" />
         <ContainerEnvironmentVariable Include="DaprEventBus__Name" Value="events" />
-        <ContainerEnvironmentVariable Include="DaprNotificationBus__Name" Value="notifications" />
         <ContainerEnvironmentVariable Include="DaprRequestBus__Name" Value="requests" />
         <ContainerEnvironmentVariable Include="ASPNETCORE_URLS" Value="http://*:8080" />
         <ContainerEnvironmentVariable Include="ASPNETCORE_HTTP_PORTS" Value="8080" />
