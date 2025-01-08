@@ -17,12 +17,4 @@
 </Router>
 @code
 {
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        foreach (var assembly in Application.PresentationAssemblies)
-        {
-            Console.WriteLine($"Routing assemblies : {assembly.FullName}");
-        }
-    }
 }
