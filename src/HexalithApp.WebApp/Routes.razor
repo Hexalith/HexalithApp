@@ -1,6 +1,6 @@
 ﻿@inject IUIApplication Application
 <Router AppAssembly="typeof(HexalithApp.WebApp._Imports).Assembly"
-        AdditionalAssemblies="[typeof(HexalithApp.WebApp.Program).Assembly, typeof(HexalithApp.WebServer.Program).Assembly, ..Application.PresentationAssemblies]">
+        AdditionalAssemblies="[..Application.PresentationAssemblies]">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
             <NotAuthorized>

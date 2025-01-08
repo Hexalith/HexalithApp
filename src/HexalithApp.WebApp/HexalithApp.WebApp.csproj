@@ -24,4 +24,9 @@
       <PackageReference Include="Hexalith.UI.Components" Version="$(HexalithVersion)" />
       <PackageReference Include="Hexalith.UI.WebApp" Version="$(HexalithVersion)" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Update="Routes.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
 </Project>

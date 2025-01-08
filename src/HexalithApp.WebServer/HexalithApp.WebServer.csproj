@@ -45,9 +45,6 @@
       <ProjectReference Include="..\HexalithApp.WebApp\HexalithApp.WebApp.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <Content Update="App.razor">
-          <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-        </Content>
         <Content Update="wwwroot\app.css">
             <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
             <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

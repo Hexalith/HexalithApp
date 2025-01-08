@@ -23,7 +23,7 @@ public static class Program
             "1.0.0",
             args);
         WebApplication app = builder.Build();
-        _ = app.UseHexalithWebApplication<App>();
+        _ = app.UseHexalithWebApplication<HexalithApp.WebServer.App>();
         await app.RunAsync().ConfigureAwait(false);
     }
 }
