@@ -4,51 +4,51 @@
 @using Hexalith.Application.Modules
 @using Hexalith.Application.Modules.Applications
 @using Hexalith.Application.Modules.Routes
+@using Microsoft.AspNetCore.Mvc.Rendering
 
-@if (_initialized)
-{
-    <!DOCTYPE html>
-    <html lang="en" style="--blazor-load-percentage:100%; --blazor-load-percentage-text:100%;">
 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <base href="/" />
-        <link rel="stylesheet" href="app.css" />
-        <link rel="stylesheet" href="HexalithApp.WebServer.styles.css" />
-        <link href="_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css" rel="stylesheet" />
-        <ImportMap />
-        <link rel="icon" type="image/x-icon" href="favicon.ico" />
-        <HeadOutlet @rendermode="@RenderModeForPage" />
-        <script type="text/javascript">
-            (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-            })(window, document, "clarity", "script", "nfc6kuwdp8");
-        </script>
-        <style>
-            .hidden-body {
+<!DOCTYPE html>
+<html lang="en" style="--blazor-load-percentage:100%; --blazor-load-percentage-text:100%;">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="HexalithApp.WebServer.styles.css" />
+    <link href="_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css" rel="stylesheet" />
+    <ImportMap />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <HeadOutlet @rendermode="@PageRenderMode" />
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "nfc6kuwdp8");
+    </script>
+    <style>
+        .hidden-body {
             visibility: hidden;
             background-color: #272727;
-            }
-        </style>
-        <style>
-            pre[class~="snippet"] {
+        }
+    </style>
+    <style>
+        pre[class~="snippet"] {
             <br> --font-monospace: "courier";
             <br> --type-ramp-base-font-variations: unset;
             <br> font-weight: bold;
             <br>
-            }
-        </style>
-    </head>
+        }
+    </style>
+</head>
 
-    <body>
-        <Routes @rendermode="@RenderModeForPage" />
-        <script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
-        <script src="_framework/blazor.web.js"></script>
-        @* <script src="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"></script> *@
-        @* 		<script>
+<body>
+    <Routes @rendermode="@PageRenderMode" />
+    <script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
+    <script src="_framework/blazor.web.js"></script>
+    @* <script src="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication/AuthenticationService.js"></script> *@
+    @* 		<script>
             window.hexalithCulture = {
                 getCulture: () => window.localStorage['hexalithCulture'],
                 setCulture: (value) => window.localStorage['hexalithCulture'] = value
@@ -64,28 +64,17 @@
                 return '';
             }
         </script>*@
-    </body>
+</body>
 
-    </html>
-}
+</html>
+
 @code
 {
     [CascadingParameter]
-    private HttpContext? HttpContext { get; set; }
+    private HttpContext HttpContext { get; set; } = default!;
 
-    private IComponentRenderMode? RenderModeForPage;
-
-    private bool _initialized;
-
-    protected override async Task OnInitializedAsync()
-    {
-        _initialized = true;
-        if (HttpContext != null)
-        {
-            RenderModeForPage = HttpContext.Request.Path.StartsWithSegments("/Account") ? InteractiveServer : InteractiveWebAssembly;
-        }
-        await base.OnInitializedAsync();
-    }
+    private IComponentRenderMode? PageRenderMode
+        => HttpContext.AcceptsInteractiveRouting() ? InteractiveServer : null;
 
 }
 
