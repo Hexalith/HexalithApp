@@ -41,10 +41,6 @@
     <AdditionalFiles Include="$(MSBuildThisFileDirectory).stylecop.json" Link="Properties\.stylecop.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MinVer" Version="$(MinverVersion)">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="$(MicrosoftVisualStudioThreadingAnalyzersVersion)">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
