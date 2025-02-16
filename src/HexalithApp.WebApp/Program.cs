@@ -27,7 +27,7 @@ public static class Program
 
         WebAssemblyHost app = builder.Build();
 
-        // await app.UseHexalithUserDefinedCultureAsync().ConfigureAwait(false);
+        await app.UseHexalithUserDefinedCultureAsync().ConfigureAwait(false);
         await app.RunAsync().ConfigureAwait(false);
     }
 }
