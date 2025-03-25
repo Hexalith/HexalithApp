@@ -45,7 +45,6 @@
 
 <body>
     <Routes @rendermode="@PageRenderMode" />
-    <script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
     <script src="_framework/blazor.web.js"></script>
     <script src="_content/Microsoft.FluentUI.AspNetCore.Components/js/loading-theme.js" type="text/javascript"></script>
     <loading-theme storage-name="FluentUITheme"></loading-theme>
@@ -76,7 +75,7 @@
     private HttpContext HttpContext { get; set; } = default!;
 
     private IComponentRenderMode? PageRenderMode
-        => HttpContext.AcceptsInteractiveRouting() ? InteractiveServer : null;
+        => HttpContext.AcceptsInteractiveRouting() ? InteractiveServer : InteractiveWebAssembly;
 
 }
 

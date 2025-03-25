@@ -1,19 +1,19 @@
 ﻿@inject IUIApplication Application
 <Router AppAssembly="typeof(HexalithApp.WebApp._Imports).Assembly"
-        AdditionalAssemblies="[..Application.PresentationAssemblies]">
-    <Found Context="routeData">
-        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
-            <NotAuthorized>
-                <RedirectToLogin />
-            </NotAuthorized>
-        </AuthorizeRouteView>
-    </Found>
-    <NotFound>
-        <PageTitle>Not found</PageTitle>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <HexNotFound />
-        </LayoutView>
-    </NotFound>
+		AdditionalAssemblies="[..Application.PresentationAssemblies]">
+	<Found Context="routeData">
+		<AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
+			<NotAuthorized>
+				<RedirectToLogin />
+			</NotAuthorized>
+		</AuthorizeRouteView>
+	</Found>
+	<NotFound>
+		<PageTitle>Not found</PageTitle>
+		<LayoutView Layout="@typeof(MainLayout)">
+			<HexNotFound />
+		</LayoutView>
+	</NotFound>
 </Router>
 @code
 {
