@@ -34,8 +34,8 @@
         <PackageReference Include="Hexalith.UI.WebServer"  />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCorePackagesVersion)" />
-        <PackageReference Include="System.Text.Json" Version="$(MicrosoftExtensionsPackagesVersion)" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server"  />
+        <PackageReference Include="System.Text.Json"  />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\HexalithApp.WebApp\HexalithApp.WebApp.csproj" />
