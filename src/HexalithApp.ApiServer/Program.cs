@@ -8,7 +8,7 @@ using HexalithApp.ApiServer.Modules.Controllers;
 /// <summary>
 /// The entry point of the application.
 /// </summary>
-public static class Program
+internal static class Program
 {
     // TODO Move to a configuration file
     private static readonly string[] _cultures = ["en-US", "fr-FR"];

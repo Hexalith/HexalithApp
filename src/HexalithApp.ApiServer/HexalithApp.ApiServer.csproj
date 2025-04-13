@@ -32,11 +32,11 @@
   <ItemGroup Condition="'$(UseProjectReference)' == 'true'">
     <ProjectReference Include="$(HexalithPath)\src\Core\Application\Hexalith.Application.Modules.Abstractions\Hexalith.Application.Modules.Abstractions.csproj" />
     <ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.WebApis\Hexalith.Infrastructure.WebApis.csproj" />
-        <ProjectReference Include="$(HexalithPath)src\Core\UI\Hexalith.UI.ApiServer\Hexalith.UI.ApiServer.csproj" />
-    </ItemGroup>
+    <ProjectReference Include="$(HexalithPath)src\Core\UI\Hexalith.UI.ApiServer\Hexalith.UI.ApiServer.csproj" />
+  </ItemGroup>
   <ItemGroup Condition="'$(UseProjectReference)' != 'true'">
     <PackageReference Include="Hexalith.Application.Modules.Abstractions" Version="$(HexalithVersion)" />
     <PackageReference Include="Hexalith.Infrastructure.WebApis" Version="$(HexalithVersion)" />
-        <PackageReference Include="Hexalith.UI.ApiServer" Version="$(HexalithVersion)" />
-    </ItemGroup>
+    <PackageReference Include="Hexalith.UI.ApiServer" Version="$(HexalithVersion)" />
+  </ItemGroup>
 </Project>
