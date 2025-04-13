@@ -2,7 +2,7 @@
   <Import Project="../../Hexalith.Modules.ApiServer.props" />
   <PropertyGroup>
     <ContainerRepository>$(HexalithAppName)api</ContainerRepository>
-    <TargetFramework>$(CommonTargetFrameworks)</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:$(DNVersion).0</ContainerBaseImage>
     <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
@@ -29,14 +29,9 @@
     <ContainerPort Include="8080" Type="tcp" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(UseProjectReference)' == 'true'">
-    <ProjectReference Include="$(HexalithPath)\src\Core\Application\Hexalith.Application.Modules.Abstractions\Hexalith.Application.Modules.Abstractions.csproj" />
-    <ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.WebApis\Hexalith.Infrastructure.WebApis.csproj" />
-    <ProjectReference Include="$(HexalithPath)src\Core\UI\Hexalith.UI.ApiServer\Hexalith.UI.ApiServer.csproj" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(UseProjectReference)' != 'true'">
-    <PackageReference Include="Hexalith.Application.Modules.Abstractions" Version="$(HexalithVersion)" />
-    <PackageReference Include="Hexalith.Infrastructure.WebApis" Version="$(HexalithVersion)" />
-    <PackageReference Include="Hexalith.UI.ApiServer" Version="$(HexalithVersion)" />
+  <ItemGroup>
+    <PackageReference Include="Hexalith.Application.Modules.Abstractions"  />
+    <PackageReference Include="Hexalith.Infrastructure.WebApis"  />
+    <PackageReference Include="Hexalith.UI.ApiServer"  />
   </ItemGroup>
 </Project>

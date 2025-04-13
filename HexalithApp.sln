@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34804.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexalithApp.StoreApp", "src\HexalithApp.StoreApp\HexalithApp.StoreApp.csproj", "{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{ABF08610-C44B-4638-AC72-7D689D1FE4E2}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
@@ -31,8 +29,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{049A999C-0B1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.ApiServer", "src\HexalithApp.ApiServer\HexalithApp.ApiServer.csproj", "{AE855428-77B7-43AD-981F-99E1CE01BB7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.SharedUIElements", "src\HexalithApp.SharedUIElements\HexalithApp.SharedUIElements.csproj", "{1835AB67-2DFD-4C43-A9BC-AAA6482B0549}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.WebApp", "src\HexalithApp.WebApp\HexalithApp.WebApp.csproj", "{84FB74A1-7074-409C-B3AD-FA43597C6A42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.WebServer", "src\HexalithApp.WebServer\HexalithApp.WebServer.csproj", "{F282E9BA-5844-4874-A90F-EA7DBECF20B5}"
@@ -43,12 +39,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{C3123565-F3DB-472D-AA0F-3BF3C325013B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C3123565-F3DB-472D-AA0F-3BF3C325013B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3123565-F3DB-472D-AA0F-3BF3C325013B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,10 +47,6 @@ Global
 		{AE855428-77B7-43AD-981F-99E1CE01BB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE855428-77B7-43AD-981F-99E1CE01BB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE855428-77B7-43AD-981F-99E1CE01BB7F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1835AB67-2DFD-4C43-A9BC-AAA6482B0549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1835AB67-2DFD-4C43-A9BC-AAA6482B0549}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1835AB67-2DFD-4C43-A9BC-AAA6482B0549}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1835AB67-2DFD-4C43-A9BC-AAA6482B0549}.Release|Any CPU.Build.0 = Release|Any CPU
 		{84FB74A1-7074-409C-B3AD-FA43597C6A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{84FB74A1-7074-409C-B3AD-FA43597C6A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84FB74A1-7074-409C-B3AD-FA43597C6A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -74,10 +60,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E25F1FBC-5DFF-4481-A9F6-5FD9AE03996F} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
 		{C3123565-F3DB-472D-AA0F-3BF3C325013B} = {AB3160B9-A4EB-4FAB-BB11-19996ABAF63F}
 		{AE855428-77B7-43AD-981F-99E1CE01BB7F} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
-		{1835AB67-2DFD-4C43-A9BC-AAA6482B0549} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
 		{84FB74A1-7074-409C-B3AD-FA43597C6A42} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
 		{F282E9BA-5844-4874-A90F-EA7DBECF20B5} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
 	EndGlobalSection

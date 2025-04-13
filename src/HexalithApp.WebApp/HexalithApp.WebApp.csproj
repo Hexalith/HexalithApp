@@ -2,7 +2,7 @@
   <Import Project="../../Hexalith.Modules.WebApp.props" />
   <PropertyGroup>
     <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
-    <TargetFramework>$(CommonTargetFrameworks)</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NoWarn>$(NoWarn);VSTHRD200;</NoWarn>
@@ -14,15 +14,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="$(AspNetCorePackagesVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="$(AspNetCorePackagesVersion)" />
   </ItemGroup>
-  <ItemGroup Condition="'$(UseProjectReference)' == 'true'">
-    <ProjectReference Include="$(HexalithPath)src\Core\Infrastructure\Hexalith.Infrastructure.ClientAppOnWasm\Hexalith.Infrastructure.ClientAppOnWasm.csproj" />
-      <ProjectReference Include="$(HexalithPath)src\Core\UI\Hexalith.UI.Components\Hexalith.UI.Components.csproj" />
-      <ProjectReference Include="$(HexalithPath)src\Core\UI\Hexalith.UI.WebApp\Hexalith.UI.WebApp.csproj" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(UseProjectReference)' != 'true'">
-      <PackageReference Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="$(HexalithVersion)" />
-      <PackageReference Include="Hexalith.UI.Components" Version="$(HexalithVersion)" />
-      <PackageReference Include="Hexalith.UI.WebApp" Version="$(HexalithVersion)" />
+  <ItemGroup>
+      <PackageReference Include="Hexalith.Infrastructure.ClientAppOnWasm"  />
+      <PackageReference Include="Hexalith.UI.Components"  />
+      <PackageReference Include="Hexalith.UI.WebApp"  />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Routes.razor">

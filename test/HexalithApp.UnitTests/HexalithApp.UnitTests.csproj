@@ -1,14 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>$(DefaultTargetFramework)</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Include="..\..\.editorconfig" Link=".editorconfig" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\HexalithApp.Client\HexalithApp.Client.csproj" />
-	  <ProjectReference Include="..\..\src\HexalithApp.Server\HexalithApp.Server.csproj" />
-	  <ProjectReference Include="..\..\src\HexalithApp.Shared\HexalithApp.Shared.csproj" />
+	  <ProjectReference Include="..\..\src\HexalithApp.ApiServer\HexalithApp.ApiServer.csproj" />
+	  <ProjectReference Include="..\..\src\HexalithApp.WebServer\HexalithApp.WebServer.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="appsettings.json">

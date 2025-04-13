@@ -2,7 +2,7 @@
     <Import Project="../../Hexalith.Modules.WebServer.props" />
     <PropertyGroup>
         <ContainerRepository>$(HexalithAppName)web</ContainerRepository>
-        <TargetFramework>$(CommonTargetFrameworks)</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <IsPackable>false</IsPackable>
         <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:$(DNVersion).0</ContainerBaseImage>
         <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
@@ -29,13 +29,9 @@
         <ContainerPort Include="8080" Type="tcp" />
     </ItemGroup>
 
-    <ItemGroup Condition="'$(UseProjectReference)' == 'true'">
-        <ProjectReference Include="$(HexalithPath)src\Core\Infrastructure\Hexalith.Infrastructure.ClientAppOnServer\Hexalith.Infrastructure.ClientAppOnServer.csproj" />
-        <ProjectReference Include="$(HexalithPath)src\Core\UI\Hexalith.UI.WebServer\Hexalith.UI.WebServer.csproj" />
-    </ItemGroup>
-    <ItemGroup Condition="'$(UseProjectReference)' != 'true'">
-        <PackageReference Include="Hexalith.Infrastructure.ClientAppOnServer" Version="$(HexalithVersion)" />
-        <PackageReference Include="Hexalith.UI.WebServer" Version="$(HexalithVersion)" />
+    <ItemGroup >
+        <PackageReference Include="Hexalith.Infrastructure.ClientAppOnServer"  />
+        <PackageReference Include="Hexalith.UI.WebServer"  />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="$(AspNetCorePackagesVersion)" />
