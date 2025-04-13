@@ -1,51 +1,42 @@
 ﻿<Project>
-	<PropertyGroup>
-		<UseProjectReference Condition="'$(UseProjectReference)' == '' and '$(BuildingByReSharper)' == 'true'">true</UseProjectReference>
-		<UseProjectReference Condition="'$(UseProjectReference)' == '' and '$(BuildingInsideVisualStudio)' == 'true'">true</UseProjectReference>
-	</PropertyGroup>
-	<PropertyGroup>
-		<HexalithProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.props', '$(MSBuildThisFileDirectory)'))</HexalithProps>
-	</PropertyGroup>
-	<Import Project="$(HexalithProps)" Condition=" '$(HexalithProps)' != '' " />
-	<Import Project="src\HexalithApp.Build\Project.Common.props" />
-	<PropertyGroup>
-		<HexalithPath Condition="'$(HexalithPath)' == ''">$(MSBuildThisFileDirectory)Hexalith</HexalithPath>
-		<HexalithVersion Condition="'$(HexalithVersion)' == ''">1.*</HexalithVersion>
-	</PropertyGroup>
-	<PropertyGroup>
-		<Authors>Jérôme Piquot</Authors>
-		<Company>Jérôme Piquot</Company>
-		<Product>Hexalith Application</Product>
-		<RepositoryUrl>https://github.com/Hexalith/HexalithApp.git</RepositoryUrl>
-		<RepositoryType>git</RepositoryType>
-	</PropertyGroup>
-	<PropertyGroup>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
-		<LangVersion>preview</LangVersion>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
-		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
-		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-		<NoWarn>MA0101;S112;CA2201;S1451;SA1609;S4055;SA1633;SA1627</NoWarn>
-	</PropertyGroup>
-	<PropertyGroup>
-		<CodeAnalysisRuleSet>$(MSBuildThisFileDirectory).stylecop.ruleset</CodeAnalysisRuleSet>
-	</PropertyGroup>
-	<ItemGroup>
-		<AdditionalFiles Include="$(MSBuildThisFileDirectory).stylecop.json" Link="Properties\.stylecop.json" />
-	</ItemGroup>
-	<ItemGroup>
-		<PackageReference Include="MinVer" Version="$(MinverVersion)">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="$(MicrosoftVisualStudioThreadingAnalyzersVersion)">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopAnalyzersVersion)">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-	</ItemGroup>
+  <PropertyGroup>
+    <HexalithProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.props', '$(MSBuildThisFileDirectory)'))</HexalithProps>
+  </PropertyGroup>
+  <Import Project="$(HexalithProps)" Condition=" '$(HexalithProps)' != '' " />
+  <PropertyGroup>
+    <HexalithPath Condition="'$(HexalithPath)' == ''">$(MSBuildThisFileDirectory)Hexalith</HexalithPath>
+    <HexalithVersion Condition="'$(HexalithVersion)' == ''">1.*</HexalithVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Authors>Jérôme Piquot</Authors>
+    <Company>Jérôme Piquot</Company>
+    <Product>Hexalith Application</Product>
+    <RepositoryUrl>https://github.com/Hexalith/HexalithApp.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>preview</LangVersion>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <NoWarn>MA0101;S112;CA2201;S1451;SA1609;S4055;SA1633;SA1627</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory).stylecop.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory).stylecop.json" Link="Properties\.stylecop.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="$(StyleCopAnalyzersVersion)">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
