@@ -3,7 +3,6 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Hexalith.Commons" Version="1.56.0" />
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="AdaptiveCards" Version="3.1.0" />
@@ -49,12 +48,12 @@
     <PackageVersion Include="Google.Apis.Auth.AspNetCore3" Version="1.69.0" />
     <PackageVersion Include="Grpc.HealthCheck" Version="2.70.0" />
     <PackageVersion Include="Grpc.Net.ClientFactory" Version="2.70.0" />
+    <PackageVersion Include="Hexalith.Commons" Version="1.56.0" />
     <PackageVersion Include="Hexalith.Commons.Configurations" Version="1.66.5" />
     <PackageVersion Include="Hexalith.Infrastructure.DaprRuntime" Version="1.56.0" />
     <PackageVersion Include="Hexalith.Application.Sessions.Abstractions" Version="1.56.0" />
     <PackageVersion Include="Hexalith.Application.Partitions.Abstractions" Version="1.56.0" />
     <PackageVersion Include="Hexalith.TestMocks" Version="1.56.0" />
-    <PackageVersion Include="Hexalith.UI.Components" Version="1.56.0" />
     <PackageVersion Include="Hexalith.Infrastructure.WebApis" Version="1.56.0" />
     <PackageVersion Include="Hexalith.Application.Modules" Version="1.56.0" />
     <PackageVersion Include="Hexalith.Application.Modules.Abstractions" Version="1.56.0" />
