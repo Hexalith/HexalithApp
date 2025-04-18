@@ -2,6 +2,6 @@
 
 using Microsoft.Extensions.DependencyInjection;
 
-public class ServiceCollection : List<ServiceDescriptor>, IServiceCollection
+internal class ServiceCollection : List<ServiceDescriptor>, IServiceCollection
 {
 }
