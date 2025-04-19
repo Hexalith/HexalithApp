@@ -3,8 +3,4 @@
     <HexalithModulesApiServerProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.Modules.ApiServer.props', '$(MSBuildThisFileDirectory)..'))</HexalithModulesApiServerProps>
   </PropertyGroup>
   <Import Project="$(HexalithModulesApiServerProps)" Condition=" '$(HexalithModulesApiServerProps)' != '' " />
-  <ItemGroup>
-    <Compile Include="src/ApiServerApplication.cs" />
-    <ProjectReference Include="src\Manhole.ApiServer\Manhole.ApiServer.csproj" />
-  </ItemGroup>
 </Project>
