@@ -1,10 +1,15 @@
 <Project>
   <PropertyGroup>
+    <!-- Define a property to store the path of the parent Directory.Packages.props. -->
+    <ParentDirectoryPackagesProps>$([MSBuild]::GetPathOfFileAbove('Directory.Packages.props', '$(MSPackagesThisFileDirectory)../'))</ParentDirectoryPackagesProps>
+  </PropertyGroup>
+
+  <!-- Import the parent Directory.Packages.props file if it exists -->
+  <Import Project="$(ParentDirectoryPackagesProps)" Condition="Exists('$(ParentDirectoryPackagesProps)')" />
+  <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
-  <ItemGroup>
-  </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="Exists('$(ParentDirectoryPackagesProps)') != 'true'">
     <PackageVersion Include="AdaptiveCards" Version="3.1.0" />
     <PackageVersion Include="AdaptiveCards.Templating" Version="2.0.2" />
     <PackageVersion Include="Aspire.Hosting" Version="9.2.0" />
@@ -85,7 +90,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.4" />
     <PackageVersion Include="Microsoft.Azure.Cosmos" Version="3.48.1" />
-    <PackageVersion Include="Microsoft.Bot.Builder" Version="4.22.7" />
+    <PackageVersion Include="Microsoft.Bot.Packageser" Version="4.22.7" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.13.0" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="9.0.4" />
@@ -126,7 +131,7 @@
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <PackageVersion Include="System.Text.Json" Version="9.0.4" />
     <PackageVersion Include="Microsoft.TeamsFx" Version="2.5.0" />
-    <PackageVersion Include="Microsoft.TypeScript.MSBuild" Version="5.8.1" />
+    <PackageVersion Include="Microsoft.TypeScript.MSPackages" Version="5.8.1" />
     <PackageVersion Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.14.2-alpha" />
     <PackageVersion Include="Moq" Version="4.20.72" />
     <PackageVersion Include="Moq.Contrib.HttpClient" Version="1.4.0" />
