@@ -2,5 +2,5 @@
   <PropertyGroup>
     <HexalithModulesWebAppProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.Modules.WebApp.props', '$(MSBuildThisFileDirectory)..'))</HexalithModulesWebAppProps>
   </PropertyGroup>
-  <Import Project="$(HexalithModulesWebAppProps)" Condition=" '$(HexalithModulesWebAppProps)' != '' " />
+  <Import Project="$(HexalithModulesWebAppProps)" Condition="'$(HexalithModulesWebAppProps)' != ''" />
 </Project>
