@@ -29,11 +29,11 @@
     <ContainerPort Include="8080" Type="tcp" />
   </ItemGroup>
 
-  <ItemGroup >
-    <PackageReference Include="Hexalith.Infrastructure.ClientAppOnServer"  />
-    <PackageReference Include="Hexalith.UI.WebServer"  />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server"  />
-    <PackageReference Include="System.Text.Json"  />
+  <ItemGroup>
+    <PackageReference Include="Hexalith.Infrastructure.ClientAppOnServer" />
+    <PackageReference Include="Hexalith.UI.WebServer" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
+    <PackageReference Include="System.Text.Json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HexalithApp.WebApp\HexalithApp.WebApp.csproj" />
