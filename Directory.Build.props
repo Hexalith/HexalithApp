@@ -1,13 +1,5 @@
 ﻿<Project>
   <PropertyGroup>
-    <HexalithProps>$([MSBuild]::GetPathOfFileAbove('Hexalith.props', '$(MSBuildThisFileDirectory)'))</HexalithProps>
-  </PropertyGroup>
-  <Import Project="$(HexalithProps)" Condition=" '$(HexalithProps)' != '' " />
-  <PropertyGroup>
-    <HexalithPath Condition="'$(HexalithPath)' == ''">$(MSBuildThisFileDirectory)Hexalith</HexalithPath>
-    <HexalithVersion Condition="'$(HexalithVersion)' == ''">1.*</HexalithVersion>
-  </PropertyGroup>
-  <PropertyGroup>
     <Authors>Jérôme Piquot</Authors>
     <Company>Jérôme Piquot</Company>
     <Product>Hexalith Application</Product>
@@ -23,20 +15,4 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <NoWarn>MA0101;S112;CA2201;S1451;SA1609;S4055;SA1633;SA1627</NoWarn>
   </PropertyGroup>
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory).stylecop.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="$(MSBuildThisFileDirectory).stylecop.json" Link="Properties\.stylecop.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="StyleCop.Analyzers" >
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
 </Project>
