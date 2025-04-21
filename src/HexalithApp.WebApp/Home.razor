@@ -3,6 +3,24 @@
 @page "/Hexalith"
 @using Microsoft.AspNetCore.Authorization
 @attribute [AllowAnonymous]
+@rendermode InteractiveAuto
+@inject NavigationManager NavigationManager
+@inject IApplication Application
 
 <HexPageTitle LocalizedTitle="Home"/>
 
+
+@code {
+    protected override void OnInitialized()
+    {
+        if (string.IsNullOrWhiteSpace(Application?.HomePath))
+        {
+            // TODO: Add Hexalith default background image
+            return;
+        }
+        // Navigate to the application HomePath
+        NavigationManager.NavigateTo(Application.HomePath, forceLoad: false);
+
+        base.OnInitialized();
+    }
+}
