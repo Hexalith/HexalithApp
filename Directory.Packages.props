@@ -1,9 +1,6 @@
 <Project>
   <!-- Import the parent Directory.Packages.props file if it exists -->
   <Import Project="$(MSBuildThisFileDirectory)../Directory.Packages.props" Condition="Exists('$(MSBuildThisFileDirectory)../Directory.Packages.props')" />
-  <PropertyGroup Condition="!Exists('$(MSBuildThisFileDirectory)../Directory.Packages.props')">
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-  </PropertyGroup>
   <ItemGroup Condition="!Exists('$(MSBuildThisFileDirectory)../Directory.Packages.props')">
     <PackageVersion Include="AdaptiveCards" Version="3.1.0" />
     <PackageVersion Include="AdaptiveCards.Templating" Version="2.0.2" />
