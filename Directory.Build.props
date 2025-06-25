@@ -12,8 +12,8 @@
 
   <!-- Import the Hexalith.Build.props file in Hexalith.Builds. This file must exist. -->
   <Import Project="$(Hexalith1BuildBuildProps)" Condition="Exists('$(Hexalith1BuildBuildProps)')" />
-  <Import Project="$(Hexalith2BuildBuildProps)" Condition="Exists('$(Hexalith2BuildBuildProps)') And !Exists('$(Hexalith1BuildBuildProps)')" />
-  <Import Project="$(Hexalith3BuildBuildProps)" Condition="Exists('$(Hexalith3BuildBuildProps)') And !Exists('$(Hexalith1BuildBuildProps)') And !Exists('$(Hexalith2BuildBuildProps)')" />
+  <Import Project="$(Hexalith2BuildBuildProps)" Condition="Exists('$(Hexalith2BuildBuildProps)') And !Exists('$(Hexalith1BuildBuildProps)') And !Exists('$(ParentDirectoryBuildProps)')" />
+  <Import Project="$(Hexalith3BuildBuildProps)" Condition="!Exists('$(Hexalith1BuildBuildProps)') And !Exists('$(Hexalith2BuildBuildProps)') And !Exists('$(ParentDirectoryBuildProps)')" />
 
   <PropertyGroup>
     <Product>Hexalith Application</Product>
