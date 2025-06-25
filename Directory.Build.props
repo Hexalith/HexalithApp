@@ -1,18 +1,22 @@
 ﻿<Project>
   <PropertyGroup>
-    <Authors>Jérôme Piquot</Authors>
-    <Company>Jérôme Piquot</Company>
+    <!-- Define a property to store the path of the parent Directory.Build.props. -->
+    <ParentDirectoryBuildProps>$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))</ParentDirectoryBuildProps>
+    <Hexalith1BuildBuildProps>$(MSBuildThisFileDirectory)Hexalith.Builds/Hexalith.Build.props</Hexalith1BuildBuildProps>
+    <Hexalith2BuildBuildProps>$(MSBuildThisFileDirectory)../Hexalith.Builds/Hexalith.Build.props</Hexalith2BuildBuildProps>
+    <Hexalith3BuildBuildProps>$(MSBuildThisFileDirectory)../../Hexalith.Builds/Hexalith.Build.props</Hexalith3BuildBuildProps>
+  </PropertyGroup>
+
+  <!-- Import the parent Directory.Build.props file if it exists -->
+  <Import Project="$(ParentDirectoryBuildProps)" Condition="Exists('$(ParentDirectoryBuildProps)')" />
+
+  <!-- Import the Hexalith.Build.props file in Hexalith.Builds. This file must exist. -->
+  <Import Project="$(Hexalith1BuildBuildProps)" Condition="Exists('$(Hexalith1BuildBuildProps)')" />
+  <Import Project="$(Hexalith2BuildBuildProps)" Condition="Exists('$(Hexalith2BuildBuildProps)') And !Exists('$(Hexalith1BuildBuildProps)')" />
+  <Import Project="$(Hexalith3BuildBuildProps)" Condition="Exists('$(Hexalith3BuildBuildProps)') And !Exists('$(Hexalith1BuildBuildProps)') And !Exists('$(Hexalith2BuildBuildProps)')" />
+
+  <PropertyGroup>
     <Product>Hexalith Application</Product>
     <RepositoryUrl>https://github.com/Hexalith/HexalithApp.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <LangVersion>preview</LangVersion>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <NoWarn>MA0101;S112;CA2201;S1451;SA1609;S4055;SA1633;SA1627</NoWarn>
   </PropertyGroup>
 </Project>

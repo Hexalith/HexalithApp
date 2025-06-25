@@ -26,12 +26,42 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexalithApp.UnitTests", "test\HexalithApp.UnitTests\HexalithApp.UnitTests.csproj", "{C3123565-F3DB-472D-AA0F-3BF3C325013B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{049A999C-0B19-4E59-92C2-2A6D4EE39545}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.ApiServer", "src\HexalithApp.ApiServer\HexalithApp.ApiServer.csproj", "{AE855428-77B7-43AD-981F-99E1CE01BB7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.WebApp", "src\HexalithApp.WebApp\HexalithApp.WebApp.csproj", "{84FB74A1-7074-409C-B3AD-FA43597C6A42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexalithApp.WebServer", "src\HexalithApp.WebServer\HexalithApp.WebServer.csproj", "{F282E9BA-5844-4874-A90F-EA7DBECF20B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{809F86A1-1C4C-B159-0CD4-DF9D33D876CE}"
+	ProjectSection(SolutionItems) = preProject
+		Hexalith.Builds\.clinerules = Hexalith.Builds\.clinerules
+		Hexalith.Builds\.cursorrules = Hexalith.Builds\.cursorrules
+		Hexalith.Builds\.git = Hexalith.Builds\.git
+		Hexalith.Builds\.gitignore = Hexalith.Builds\.gitignore
+		Hexalith.Builds\ai-assistant-instructions.md = Hexalith.Builds\ai-assistant-instructions.md
+		Hexalith.Builds\ai-commit-prompt.md = Hexalith.Builds\ai-commit-prompt.md
+		Hexalith.Builds\Hexalith.Build.props = Hexalith.Builds\Hexalith.Build.props
+		Hexalith.Builds\Hexalith.Builds.sln = Hexalith.Builds\Hexalith.Builds.sln
+		Hexalith.Builds\Hexalith.globalconfig = Hexalith.Builds\Hexalith.globalconfig
+		Hexalith.Builds\Hexalith.Package.props = Hexalith.Builds\Hexalith.Package.props
+		Hexalith.Builds\icon.png = Hexalith.Builds\icon.png
+		Hexalith.Builds\LICENSE = Hexalith.Builds\LICENSE
+		Hexalith.Builds\package.json = Hexalith.Builds\package.json
+		Hexalith.Builds\README.md = Hexalith.Builds\README.md
+		Hexalith.Builds\stylecop.json = Hexalith.Builds\stylecop.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Github", "Github", "{5F983275-A68E-F0D6-196A-BC97E9AECC0F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Props", "Props", "{181F9AEE-E424-0731-B7D8-F9F4B77ECAD6}"
+	ProjectSection(SolutionItems) = preProject
+		Hexalith.Builds\Props\Directory.Packages.props = Hexalith.Builds\Props\Directory.Packages.props
+		Hexalith.Builds\Props\Environment.Build.props = Hexalith.Builds\Props\Environment.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,6 +94,8 @@ Global
 		{AE855428-77B7-43AD-981F-99E1CE01BB7F} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
 		{84FB74A1-7074-409C-B3AD-FA43597C6A42} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
 		{F282E9BA-5844-4874-A90F-EA7DBECF20B5} = {049A999C-0B19-4E59-92C2-2A6D4EE39545}
+		{5F983275-A68E-F0D6-196A-BC97E9AECC0F} = {809F86A1-1C4C-B159-0CD4-DF9D33D876CE}
+		{181F9AEE-E424-0731-B7D8-F9F4B77ECAD6} = {809F86A1-1C4C-B159-0CD4-DF9D33D876CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C98EBA45-B46B-42EF-B848-3A62BCAD721B}
