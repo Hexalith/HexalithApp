@@ -8,7 +8,6 @@
     <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
     <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
     <UserSecretsId>$(ContainerRepository)</UserSecretsId>
-    <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
   </PropertyGroup>
   <ItemGroup>
     <ContainerEnvironmentVariable Include="Hexalith__Version" Value="$(Version)" />

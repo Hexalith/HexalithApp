@@ -1,4 +1,9 @@
-﻿namespace HexalithApp.ApiServer.Modules.Controllers;
+﻿// <copyright file="ModuleManagementController.cs" company="ITANEO">
+// Copyright (c) ITANEO (https://www.itaneo.com). All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
+
+namespace HexalithApp.ApiServer.Modules.Controllers;
 
 using System.ComponentModel.DataAnnotations;
 
@@ -20,6 +25,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 /// <seealso cref="ControllerBase" />
 /// <seealso cref="IModuleManagementService" />
 [ApiController]
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S6931:ASP.NET controller actions should not have a route template starting with \"/\"", Justification = "Specific routes")]
 public class ModuleManagementController : ControllerBase
 {
     private readonly IApplication _application;
@@ -59,15 +65,21 @@ public class ModuleManagementController : ControllerBase
     [Route(ModuleConstants.ModuleInformationApi)]
     public Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>> GetModuleInformation([Required] string id)
     {
-        return !ModelState.IsValid
-            ? (Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>>)TypedResults.BadRequest(ModelState)
-            : !_modules.TryGetValue(id, out IApplicationModule? module)
-            ? TypedResults.NotFound(
-                $"Module {id} not found. Valid module names are: {string.Join("; ", _modules.Select(p => p.Key))}.")
-            : TypedResults.Ok(new ModuleInformation(
-                module.Name,
-                module.Description,
-                module.Version,
-                false));
+        if (ModelState?.IsValid != true)
+        {
+            return TypedResults.BadRequest(ModelState);
+        }
+
+        if (!_modules.TryGetValue(id, out IApplicationModule? module))
+        {
+            return TypedResults.NotFound(
+                $"Module {id} not found. Valid module names are: {string.Join("; ", _modules.Select(p => p.Key))}.");
+        }
+
+        return TypedResults.Ok(new ModuleInformation(
+            module.Name,
+            module.Description,
+            module.Version,
+            false));
     }
 }
