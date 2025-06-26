@@ -1,32 +1,11 @@
 <Project>
-  <!-- Import the parent Directory.Packages.props file if it exists -->
   <PropertyGroup>
-    <!-- Define a property to store the path of the parent Directory.Package.Props. -->
-    <ParentDirectoryPackageProps>$([MSBuild]::GetPathOfFileAbove('Directory.Package.Props', '$(MSBuildThisFileDirectory)../'))</ParentDirectoryPackageProps>
     <Hexalith1BuildPackageProps>$(MSBuildThisFileDirectory)Hexalith.Builds/Props/Directory.Packages.props</Hexalith1BuildPackageProps>
-    <Hexalith2BuildPackageProps>$(MSBuildThisFileDirectory)../Hexalith.Builds/Propos/Directory.Packages.props</Hexalith2BuildPackageProps>
+    <Hexalith2BuildPackageProps>$(MSBuildThisFileDirectory)../Hexalith.Builds/Props/Directory.Packages.props</Hexalith2BuildPackageProps>
     <Hexalith3BuildPackageProps>$(MSBuildThisFileDirectory)../../Hexalith.Builds/Props/Directory.Packages.props</Hexalith3BuildPackageProps>
   </PropertyGroup>
-  <!-- Import the Hexalith.Package.Props file in Hexalith.Builds. This file must exist. -->
-  <Import Project="$(ParentDirectoryPackageProps)" Condition="Exists('$(ParentDirectoryPackageProps)')" />
-  <Import Project="$(Hexalith1BuildPackageProps)" Condition="Exists('$(Hexalith1BuildPackageProps)') And !Exists('$(ParentDirectoryPackageProps)')" />
-  <Import Project="$(Hexalith2BuildPackageProps)" Condition="Exists('$(Hexalith2BuildPackageProps)') And !Exists('$(Hexalith1BuildPackageProps)') And !Exists('$(ParentDirectoryPackageProps)')" />
-  <Import Project="$(Hexalith3BuildPackageProps)" Condition="!Exists('$(Hexalith1BuildPackageProps)') And !Exists('$(Hexalith2BuildPackageProps)') And !Exists('$(ParentDirectoryPackageProps)')" />
-  <ItemGroup>
-    <PackageVersion Include="Hexalith.Application.Modules" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.Application.Modules.Abstractions" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.Application.Partitions.Abstractions" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.Application.Sessions.Abstractions" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.Infrastructure.ClientApp" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.Infrastructure.ClientAppOnServer" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.Infrastructure.DaprRuntime" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.Infrastructure.WebApis" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.Infrastructure.WebApp" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.TestMocks" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.UI.ApiServer" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.UI.Components" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.UI.WebApp" Version="1.67.7" />
-    <PackageVersion Include="Hexalith.UI.WebServer" Version="1.67.7" />
-  </ItemGroup>
+  <!-- Import the Directory.Package.props file in Hexalith.Builds. -->
+  <Import Project="$(Hexalith1BuildPackageProps)" Condition="Exists('$(Hexalith1BuildPackageProps)') And '$(HexalithVersionsLoaded)' == ''" />
+  <Import Project="$(Hexalith2BuildPackageProps)" Condition="Exists('$(Hexalith2BuildPackageProps)') And '$(HexalithVersionsLoaded)' == ''" />
+  <Import Project="$(Hexalith3BuildPackageProps)" Condition="'$(HexalithVersionsLoaded)' == ''" />
 </Project>
