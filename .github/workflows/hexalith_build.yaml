@@ -36,8 +36,14 @@ jobs:
         echo "MINVERVERSIONOVERRIDE=$version" >> $GITHUB_ENV
         echo "VERSION=$version" >> $GITHUB_ENV
         echo "VERSION=$version"
-    - name: Build
-      run: |
+    - name: Initialize Hexalith.Builds submodule
+      shell: bash
+      run: | 
+          git submodule init Hexalith.Builds
+          git submodule update Hexalith.Builds
+          cd Hexalith.Builds
+          git checkout main
+          git pull
     - name: Build
       run: |
         dotnet build './src/HexalithApp.ApiServer/HexalithApp.ApiServer.csproj' --configuration Release -p:Version=${{ env.VERSION }}
