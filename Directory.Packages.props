@@ -11,20 +11,20 @@
   <Import Project="$(Hexalith2BuildPackageProps)" Condition="Exists('$(Hexalith2BuildPackageProps)') And '$(HexalithVersionsLoaded)' != 'true'" />
   <Import Project="$(Hexalith3BuildPackageProps)" Condition="'$(HexalithVersionsLoaded)' != 'true'" />
   <ItemGroup Condition="!Exists('$(ParentDirectoryPackageProps)')">
-    <PackageVersion Include="Hexalith.Application.Modules" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.Application.Modules.Abstractions" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.Application.Partitions.Abstractions" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.Application.Sessions.Abstractions" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.Infrastructure.ClientApp" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.Infrastructure.ClientAppOnServer" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.Infrastructure.DaprRuntime" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.Infrastructure.WebApis" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.Infrastructure.WebApp" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.TestMocks" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.UI.ApiServer" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.UI.Components" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.UI.WebApp" Version="1.68.6" />
-    <PackageVersion Include="Hexalith.UI.WebServer" Version="1.68.6" />
+    <PackageVersion Include="Hexalith.Application.Modules" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Application.Modules.Abstractions" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Application.Partitions.Abstractions" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Application.Sessions.Abstractions" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Infrastructure.ClientApp" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Infrastructure.ClientAppOnServer" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Infrastructure.DaprRuntime" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Infrastructure.WebApis" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Infrastructure.WebApp" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.TestMocks" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.UI.ApiServer" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.UI.Components" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.UI.WebApp" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.UI.WebServer" Version="1.68.9" />
   </ItemGroup>
 </Project>
