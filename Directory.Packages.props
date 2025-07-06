@@ -24,6 +24,9 @@
     <PackageVersion Include="Hexalith.Infrastructure.WebApis" Version="1.68.9" />
     <PackageVersion Include="Hexalith.Infrastructure.WebApp" Version="1.68.9" />
     <PackageVersion Include="Hexalith.TestMocks" Version="1.68.9" />
+    <PackageVersion Include="Hexalith.Security.ApiServer" Version="2.8.25" />
+    <PackageVersion Include="Hexalith.Security.WebApp" Version="2.8.25" />
+    <PackageVersion Include="Hexalith.Security.WebServer" Version="2.8.25" />
     <PackageVersion Include="Hexalith.UI.ApiServer" Version="1.68.9" />
     <PackageVersion Include="Hexalith.UI.Components" Version="1.68.9" />
     <PackageVersion Include="Hexalith.UI.WebApp" Version="1.68.9" />
