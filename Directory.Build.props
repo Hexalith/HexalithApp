@@ -20,7 +20,7 @@
   <PropertyGroup>
     <Product>Hexalith Application</Product>
     <RepositoryUrl>https://github.com/Hexalith/HexalithApp.git</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/Hexalith/Hexalith.Security</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/Hexalith/HexalithApp</PackageProjectUrl>
     <PackageTags>hexalith;application;api server;web app;web server;</PackageTags>
     <Description>Hexalith application projects</Description>
   </PropertyGroup>
