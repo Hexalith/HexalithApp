@@ -50,11 +50,13 @@ public class ModuleManagementController : ControllerBase
     [HttpGet]
     [Route(ModuleConstants.ApplicationInformationApi)]
     public Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>> GetApplicationInformation()
-        => TypedResults.Ok(new ModuleInformation(
-                _application.Name,
-                _application.Description,
-                _application.Version,
-                true));
+    {
+        return TypedResults.Ok(new ModuleInformation(
+                    _application.Name,
+                    _application.Description,
+                    _application.Version,
+                    true));
+    }
 
     /// <summary>
     /// Gets the module information.
@@ -70,13 +72,10 @@ public class ModuleManagementController : ControllerBase
             return TypedResults.BadRequest(ModelState);
         }
 
-        if (!_modules.TryGetValue(id, out IApplicationModule? module))
-        {
-            return TypedResults.NotFound(
-                $"Module {id} not found. Valid module names are: {string.Join("; ", _modules.Select(p => p.Key))}.");
-        }
-
-        return TypedResults.Ok(new ModuleInformation(
+        return !_modules.TryGetValue(id, out IApplicationModule? module)
+            ? (Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>>)TypedResults.NotFound(
+                $"Module {id} not found. Valid module names are: {string.Join("; ", _modules.Select(p => p.Key))}.")
+            : (Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>>)TypedResults.Ok(new ModuleInformation(
             module.Name,
             module.Description,
             module.Version,
