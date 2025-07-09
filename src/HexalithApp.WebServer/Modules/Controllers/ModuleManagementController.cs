@@ -49,14 +49,11 @@ public class ModuleManagementController : ControllerBase
     /// <returns>The application information.</returns>
     [HttpGet]
     [Route(ModuleConstants.ApplicationInformationApi)]
-    public Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>> GetApplicationInformation()
-    {
-        return TypedResults.Ok(new ModuleInformation(
+    public Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>> GetApplicationInformation() => TypedResults.Ok(new ModuleInformation(
                     _application.Name,
                     _application.Description,
                     _application.Version,
                     true));
-    }
 
     /// <summary>
     /// Gets the module information.
