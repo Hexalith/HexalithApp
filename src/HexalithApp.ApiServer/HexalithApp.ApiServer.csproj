@@ -2,7 +2,7 @@
   <Import Project="../../Hexalith.Modules.ApiServer.props" />
   <PropertyGroup>
     <ContainerRepository>$(HexalithAppName)api</ContainerRepository>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFrameworks>net10.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:9.0</ContainerBaseImage>
     <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
