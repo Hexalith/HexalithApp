@@ -4,7 +4,7 @@
     <ContainerRepository>$(HexalithAppName)api</ContainerRepository>
     <TargetFrameworks>net10.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:9.0</ContainerBaseImage>
+    <ContainerBaseImage>mcr.microsoft.com/dotnet/aspnet:10.0</ContainerBaseImage>
     <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
     <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
     <UserSecretsId>$(ContainerRepository)</UserSecretsId>
