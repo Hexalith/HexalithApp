@@ -30,8 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hexalith.Application.Modules.Abstractions"  />
-    <PackageReference Include="Hexalith.Infrastructure.WebApis"  />
-    <PackageReference Include="Hexalith.UI.ApiServer"  />
+    <PackageReference Include="Hexalith.Application.Modules.Abstractions" />
+    <PackageReference Include="Hexalith.Infrastructure.WebApis" />
+    <PackageReference Include="Hexalith.UI.ApiServer" />
   </ItemGroup>
 </Project>
