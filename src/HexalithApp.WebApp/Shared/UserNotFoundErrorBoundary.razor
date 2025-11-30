@@ -24,18 +24,6 @@ else
 }
 
 @code {
-    /// <summary>
-    /// Gets or sets the child content to render when no error is present.
-    /// </summary>
-    [Parameter]
-    public new RenderFragment? ChildContent { get; set; }
-
-    /// <summary>
-    /// Gets or sets the content to render when a non-user-not-found error occurs.
-    /// </summary>
-    [Parameter]
-    public new RenderFragment<Exception>? ErrorContent { get; set; }
-
     /// <inheritdoc />
     protected override Task OnErrorAsync(Exception exception)
     {
