@@ -9,7 +9,7 @@
         <p>Your session has expired or your account was not found.</p>
         <form method="post" action="/Account/Logout">
             <AntiforgeryToken />
-            <input type="hidden" name="returnUrl" value="" />
+            <input type="hidden" name="returnUrl" value="/Account/Login" />
             <button type="submit" style="padding: 0.5rem 1rem; cursor: pointer;">Sign in again</button>
         </form>
     </div>
@@ -24,6 +24,18 @@ else
 }
 
 @code {
+    /// <summary>
+    /// Gets or sets the content to render when an error occurs.
+    /// </summary>
+    [Parameter]
+    public new RenderFragment<Exception>? ErrorContent { get; set; }
+
+    /// <summary>
+    /// Gets or sets the child content to render.
+    /// </summary>
+    [Parameter]
+    public new RenderFragment? ChildContent { get; set; }
+
     /// <inheritdoc />
     protected override Task OnErrorAsync(Exception exception)
     {
