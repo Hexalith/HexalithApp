@@ -7,7 +7,7 @@
 @inject NavigationManager NavigationManager
 @inject IApplication Application
 
-<HexPageTitle LocalizedTitle="Home"/>
+<HexPageTitle LocalizedTitle="Home" />
 
 
 @code {
@@ -19,7 +19,11 @@
             return;
         }
         // Navigate to the application HomePath
-        NavigationManager.NavigateTo(Application.HomePath, forceLoad: false);
+        string currentPath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        if (!string.Equals(currentPath, Application.HomePath, StringComparison.OrdinalIgnoreCase))
+        {
+            NavigationManager.NavigateTo(Application.HomePath, forceLoad: false);
+        }
 
         base.OnInitialized();
     }
