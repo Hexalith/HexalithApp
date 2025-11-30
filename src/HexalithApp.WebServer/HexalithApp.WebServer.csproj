@@ -33,6 +33,7 @@
   <ItemGroup>
     <PackageReference Include="Hexalith.Infrastructure.ClientAppOnServer" />
     <PackageReference Include="Hexalith.UI.WebServer" />
+    <PackageReference Include="Hexalith.Security.WebServer" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
   </ItemGroup>
   <ItemGroup>

@@ -8,6 +8,7 @@
     <ContainerRuntimeIdentifier>linux-x64</ContainerRuntimeIdentifier>
     <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
     <UserSecretsId>$(ContainerRepository)</UserSecretsId>
+    <NoWarn>$(NoWarn);S6960;</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <ContainerEnvironmentVariable Include="Hexalith__Version" Value="$(Version)" />
@@ -33,5 +34,6 @@
     <PackageReference Include="Hexalith.Application.Modules.Abstractions" />
     <PackageReference Include="Hexalith.Infrastructure.WebApis" />
     <PackageReference Include="Hexalith.UI.ApiServer" />
+    <PackageReference Include="Hexalith.Security.ApiServer" />
   </ItemGroup>
 </Project>
