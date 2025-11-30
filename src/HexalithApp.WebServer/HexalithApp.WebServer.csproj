@@ -33,11 +33,9 @@
   <ItemGroup>
     <PackageReference Include="Hexalith.Infrastructure.ClientAppOnServer" />
     <PackageReference Include="Hexalith.UI.WebServer" />
-    <PackageReference Include="Hexalith.Security.WebServer" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\libraries\Infrastructure\Hexalith.MyNewModules.WebServer\Hexalith.MyNewModules.WebServer.csproj" />
     <ProjectReference Include="..\HexalithApp.WebApp\HexalithApp.WebApp.csproj" />
   </ItemGroup>
   <ItemGroup>

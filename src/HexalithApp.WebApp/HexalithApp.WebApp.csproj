@@ -15,7 +15,6 @@
     <PackageReference Include="Hexalith.Infrastructure.ClientAppOnWasm" />
     <PackageReference Include="Hexalith.UI.Components" />
     <PackageReference Include="Hexalith.UI.WebApp" />
-    <PackageReference Include="Hexalith.Security.WebApp" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Routes.razor">
