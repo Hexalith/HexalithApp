@@ -1,20 +1,36 @@
-﻿@inject IUIApplication Application
-<Router AppAssembly="typeof(HexalithApp.WebApp._Imports).Assembly"
-		AdditionalAssemblies="[..Application.PresentationAssemblies]">
-	<Found Context="routeData">
-		<AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
-			<NotAuthorized>
-				<RedirectToLogin />
-			</NotAuthorized>
-		</AuthorizeRouteView>
-	</Found>
-	<NotFound>
+﻿@using HexalithApp.WebApp.Shared
+@inject IUIApplication Application
+
+<UserNotFoundErrorBoundary>
+	<ChildContent>
+		<Router AppAssembly="typeof(HexalithApp.WebApp._Imports).Assembly"
+				AdditionalAssemblies="[..Application.PresentationAssemblies]">
+			<Found Context="routeData">
+				<AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
+					<NotAuthorized>
+						<RedirectToLogin />
+					</NotAuthorized>
+				</AuthorizeRouteView>
+			</Found>
+			<NotFound>
+				<LayoutView Layout="@typeof(MainLayout)">
+					<HexPageTitle>Not Found</HexPageTitle>
+					<HexNotFound />
+				</LayoutView>
+			</NotFound>
+		</Router>
+	</ChildContent>
+	<ErrorContent Context="exception">
 		<LayoutView Layout="@typeof(MainLayout)">
-			<HexPageTitle>Not Found</HexPageTitle>
-			<HexNotFound />
+			<HexPageTitle>Error</HexPageTitle>
+			<div class="error-container">
+				<h1>An error occurred</h1>
+				<p>@exception.Message</p>
+			</div>
 		</LayoutView>
-	</NotFound>
-</Router>
+	</ErrorContent>
+</UserNotFoundErrorBoundary>
+
 @code
 {
 }

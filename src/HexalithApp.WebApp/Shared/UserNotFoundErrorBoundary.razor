@@ -1,0 +1,66 @@
+@using Microsoft.AspNetCore.Components.Web
+@inherits ErrorBoundary
+@inject NavigationManager NavigationManager
+
+@if (CurrentException is not null && IsUserNotFoundException(CurrentException))
+{
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; gap: 1rem;">
+        <h2>Session Expired</h2>
+        <p>Your session has expired or your account was not found.</p>
+        <form method="post" action="/Account/Logout">
+            <AntiforgeryToken />
+            <input type="hidden" name="returnUrl" value="" />
+            <button type="submit" style="padding: 0.5rem 1rem; cursor: pointer;">Sign in again</button>
+        </form>
+    </div>
+}
+else if (CurrentException is not null)
+{
+    @ErrorContent?.Invoke(CurrentException)
+}
+else
+{
+    @ChildContent
+}
+
+@code {
+    /// <summary>
+    /// Gets or sets the child content to render when no error is present.
+    /// </summary>
+    [Parameter]
+    public new RenderFragment? ChildContent { get; set; }
+
+    /// <summary>
+    /// Gets or sets the content to render when a non-user-not-found error occurs.
+    /// </summary>
+    [Parameter]
+    public new RenderFragment<Exception>? ErrorContent { get; set; }
+
+    /// <inheritdoc />
+    protected override Task OnErrorAsync(Exception exception)
+    {
+        // Log the exception or perform any additional handling
+        return base.OnErrorAsync(exception);
+    }
+
+    private static bool IsUserNotFoundException(Exception? exception)
+    {
+        if (exception is null)
+        {
+            return false;
+        }
+
+        // Check the exception message for "not found" pattern
+        if (exception is InvalidOperationException ioe &&
+            ioe.Message.Contains("not found", StringComparison.OrdinalIgnoreCase) &&
+            (ioe.Message.Contains("User", StringComparison.OrdinalIgnoreCase) ||
+             ioe.Message.Contains("Normalized", StringComparison.OrdinalIgnoreCase)))
+        {
+            return true;
+        }
+
+        // Check inner exceptions
+        return IsUserNotFoundException(exception.InnerException);
+    }
+}
+
