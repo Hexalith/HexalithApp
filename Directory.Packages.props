@@ -13,13 +13,13 @@
 	<Import Project="$(Hexalith3BuildPackageProps)" Condition="'$(HexalithVersionsLoaded)' != 'true'" />
 	<ItemGroup>
 		<!-- Define packages versions for this module. -->
-		<PackageVersion Include="Hexalith.Application.Modules.Abstractions" Version="1.72.2" />
-		<PackageVersion Include="Hexalith.Infrastructure.ClientAppOnServer" Version="1.72.2" />
-		<PackageVersion Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="1.72.2" />
-		<PackageVersion Include="Hexalith.Infrastructure.WebApis" Version="1.72.2" />
-		<PackageVersion Include="Hexalith.UI.ApiServer" Version="1.72.2" />
-		<PackageVersion Include="Hexalith.UI.Components" Version="1.72.2" />
-		<PackageVersion Include="Hexalith.UI.WebApp" Version="1.72.2" />
-		<PackageVersion Include="Hexalith.UI.WebServer" Version="1.72.2" />
+		<PackageVersion Include="Hexalith.Application.Modules.Abstractions" Version="1.72.3" />
+		<PackageVersion Include="Hexalith.Infrastructure.ClientAppOnServer" Version="1.72.3" />
+		<PackageVersion Include="Hexalith.Infrastructure.ClientAppOnWasm" Version="1.72.3" />
+		<PackageVersion Include="Hexalith.Infrastructure.WebApis" Version="1.72.3" />
+		<PackageVersion Include="Hexalith.UI.ApiServer" Version="1.72.3" />
+		<PackageVersion Include="Hexalith.UI.Components" Version="1.72.3" />
+		<PackageVersion Include="Hexalith.UI.WebApp" Version="1.72.3" />
+		<PackageVersion Include="Hexalith.UI.WebServer" Version="1.72.3" />
 	</ItemGroup>
 </Project>
