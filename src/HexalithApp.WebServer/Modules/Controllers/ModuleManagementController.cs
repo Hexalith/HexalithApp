@@ -62,6 +62,7 @@ public class ModuleManagementController : ControllerBase
     /// <returns>The module information.</returns>
     [HttpGet]
     [Route(ModuleConstants.ModuleInformationApi)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0046:Convert to conditional expression", Justification = "avoid complexity")]
     public Results<BadRequest<ModelStateDictionary>, NotFound<string>, Ok<ModuleInformation>> GetModuleInformation([Required] string id)
     {
         if (!ModelState.IsValid)
